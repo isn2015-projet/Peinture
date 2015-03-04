@@ -1,3 +1,6 @@
 # Peinture
 Projet ISN 2015 - Dimitri et Nicolas
-En cours...
+
+Télécharger le fichier
+Compiler main.c
+Executer main.c
