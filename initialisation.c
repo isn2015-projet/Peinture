@@ -20,7 +20,7 @@ Dimension d'un bouton: 24px - 24px
 
 
 
-
+//Création du tableau bouton où nous stockerons les informations liés aux boutons
 const char *bouton[NB_BOUTON] = {0};
 int i;
 for(i = 0; i < NB_BOUTON; i++) {
