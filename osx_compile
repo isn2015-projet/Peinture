@@ -1,0 +1,5 @@
+#!/bin/bash
+
+## Compile and run $1
+target=`basename "$1" .c`
+make -f Makefile.osx $target && ./$target
