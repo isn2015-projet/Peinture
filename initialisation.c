@@ -1,5 +1,8 @@
 //--------------PARAMETRES---------------
 #define NB_BOUTON 13
+#define COULEUR_FOND couleur_RGB(255,255,255)
+#define COULEUR_COLONNE couleur_RGB(230,230,230)
+#define COULEUR_BORDURE couleur_RGB(150,150,150)
 /*
 Dimension d'un bouton: 24px - 24px
 1: Pinceau
@@ -45,26 +48,26 @@ void initialisation_projet(char *titre, int width, int height, int *bouton) {
 
 
 void affichage_interface(int width, int height) {
-    remplir_ecran(blanc);
+    remplir_ecran(COULEUR_FOND);
     
     
     //colonne de gauche
     POINT p1, p2;
     p1.x = 0; p1.y = 0;
     p2.x = 50; p2.y = height;
-    dessine_rectangle_plein(p1, p2, couleur_RGB(230,230,230));
+    dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
     
     //ligne du bas
     p1.x = 0; p1.y = 0;
     p2.x = width; p2.y = 50;
-    dessine_rectangle_plein(p1, p2, couleur_RGB(230,230,230));
+    dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
     
     p1.x = 0; p1.y = 50;
     p2.x = width; p2.y = 50;
-    dessine_ligne(p1, p2, couleur_RGB(150,150,150));
+    dessine_ligne(p1, p2, COULEUR_BORDURE);
     p1.x = 50; p1.y = height;
     p2.x = 50; p2.y = 50;
-    dessine_ligne(p1, p2, couleur_RGB(150,150,150));
+    dessine_ligne(p1, p2, COULEUR_BORDURE);
 
 
     affiche_tout();
