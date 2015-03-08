@@ -28,13 +28,9 @@ void initialisation_projet(char *titre, int width, int height, int *bouton) {
     
     
     initialiser_fenetre(width, height, titre);
-    remplir_ecran(blanc);
+    affiche_auto_off();
+
     
-    //colonne de gauche
-    POINT p1, p2;
-    p1.x = 0; p1.y = 0;
-    p2.x = 50; p2.y = height;
-    dessine_rectangle_plein(p1, p2, couleur_RGB(230,230,230));
     
     //Création du tableau bouton où nous stockerons les informations liés aux boutons
     int i;
@@ -44,7 +40,33 @@ void initialisation_projet(char *titre, int width, int height, int *bouton) {
     
     
     
-    
     printf("Fin de l'initisalisation.\n");
+}
+
+
+void affichage_interface(int width, int height) {
+    remplir_ecran(blanc);
+    
+    
+    //colonne de gauche
+    POINT p1, p2;
+    p1.x = 0; p1.y = 0;
+    p2.x = 50; p2.y = height;
+    dessine_rectangle_plein(p1, p2, couleur_RGB(230,230,230));
+    
+    //ligne du bas
+    p1.x = 0; p1.y = 0;
+    p2.x = width; p2.y = 50;
+    dessine_rectangle_plein(p1, p2, couleur_RGB(230,230,230));
+    
+    p1.x = 0; p1.y = 50;
+    p2.x = width; p2.y = 50;
+    dessine_ligne(p1, p2, couleur_RGB(150,150,150));
+    p1.x = 50; p1.y = height;
+    p2.x = 50; p2.y = 50;
+    dessine_ligne(p1, p2, couleur_RGB(150,150,150));
+
+
+    affiche_tout();
 }
 
