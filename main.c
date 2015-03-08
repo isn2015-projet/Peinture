@@ -8,7 +8,7 @@ int main( int argc, char** argv )
     
     
     
-    
-    attendre(5000);
-    quitter(0);
+    //instruction bloquante, n'est pas présente dans la version finale, sera remplacée par un while(1) qui
+    //attendra les instructions
+    attendre_echap();
 }
