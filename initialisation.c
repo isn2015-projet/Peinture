@@ -64,6 +64,7 @@ void affichage_interface(int width, int height) {
     p2.x = width; p2.y = 50;
     dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
     
+    //bordures
     p1.x = 0; p1.y = 50;
     p2.x = width; p2.y = 50;
     dessine_ligne(p1, p2, COULEUR_BORDURE);
@@ -71,6 +72,7 @@ void affichage_interface(int width, int height) {
     p2.x = 50; p2.y = 50;
     dessine_ligne(p1, p2, COULEUR_BORDURE);
     
+    //informations bottom right (outil sélectionné + position curseur)
     p1.x = width-170; p1.y = 43;
     p2 = position_souris();
     char coordonnees[30];
