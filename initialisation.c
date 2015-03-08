@@ -48,10 +48,3 @@ void initialisation_projet(char *titre, int width, int height, int *bouton) {
     printf("Fin de l'initisalisation.\n");
 }
 
-
-//Création du tableau bouton où nous stockerons les informations liés aux boutons
-const char *bouton[NB_BOUTON] = {0};
-int i;
-for(i = 0; i < NB_BOUTON; i++) {
-    bouton[i] = i+1;
-}
