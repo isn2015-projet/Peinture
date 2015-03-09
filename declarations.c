@@ -14,9 +14,6 @@ char mode[200] = "Outil choisi: Aucun";
 
 
 
-
-//test
-
 /*
  Dimension d'un bouton: 24px - 24px
  1: Pinceau
