@@ -2,6 +2,7 @@
 #include "fonctions.c"
 #include "initialisation.c"
 
+//idée: rassembler toutes les déclarations de fonction et variable dans un même fichier
 
 int main( int argc, char** argv )
 {
