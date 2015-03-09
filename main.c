@@ -1,5 +1,5 @@
 #include "toolbox.h"
-#include "fonctions.c"
+#include "fonctions.h"
 #include "initialisation.c"
 
 /*idée: rassembler toutes les déclarations de fonction et variable dans un même fichier
