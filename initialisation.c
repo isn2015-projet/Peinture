@@ -24,7 +24,7 @@
 
 //on déclare les variables dont nous aurons besoin
 int bouton[NB_BOUTON] = {0};
-char mode[40] = "Outil choisi: Aucun";
+char mode[200] = "Outil choisi: Aucun";
 
 
 //on développe notre fonction d'initialisation du projet
