@@ -52,5 +52,15 @@ void affichage_interface(int width, int height) {
     p1.y -= 20;
     dessine_texte(mode,12,p1,COULEUR_TEXTE);
     
+    
+    
+    ////////////////////TABLEAU DE BOUTON
+    //-----
+    ///////////////////
+    
+    
+    //////////////////PALETTE
+    //-----
+    /////////////////
     affiche_tout();
 }
