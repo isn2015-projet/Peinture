@@ -71,7 +71,7 @@ void affichage_interface(int width, int height) {
     p1.x = 50; p1.y = height;
     p2.x = 50; p2.y = 50;
     dessine_ligne(p1, p2, COULEUR_BORDURE);
-    
+    //
     //informations bottom right (outil sélectionné + position curseur)
     p1.x = width-170; p1.y = 43;
     p2 = position_souris();
