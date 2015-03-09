@@ -1,4 +1,5 @@
 #include "toolbox.h"
+#include "declarations.c"
 #include "fonctions.h"
 #include "initialisation.c"
 
