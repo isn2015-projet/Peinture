@@ -8,7 +8,6 @@ void ouvre_fichier_icon(int numero) {
     if( fp != NULL ) {
             
             while( fgets(line,1024,fp) ) {
-                printf(">%d: %d<\n",v, atoi(line));
                 bouton_icons[numero][v] = atoi(line);
                 v++;
             }
