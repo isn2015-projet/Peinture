@@ -89,14 +89,14 @@ void affichage_interface(int width, int height) {
             p2.y = height-bordure_bouton_top-24;
         }
         if(duet == 1) {
-            p1.x = 0;
-            p2.x = 24;
-            p1.x = 26;
-            p2.x = 50;
+            p1.x = 1;
+            p2.x = 25;
+            p1.x = 25;
+            p2.x = 49;
         }
         else {
-            p1.x = 0;
-            p2.x = 24;
+            p1.x = 1;
+            p2.x = 25;
             
             p1.y -= 24;
             p2.y -= 24;
