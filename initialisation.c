@@ -43,13 +43,6 @@ void initialisation_projet(char *titre, int width, int height) {
 void affichage_interface(int width, int height) {
     remplir_ecran(COULEUR_FOND);
     
-    
-    //colonne de gauche
-    POINT p1, p2;
-    p1.x = 0; p1.y = 0;
-    p2.x = LARGEUR_MENU; p2.y = height;
-    dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
-    
     //colonne de gauche
     POINT p1, p2;
     p1.x = 0; p1.y = 0;
