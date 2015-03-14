@@ -8,7 +8,7 @@
 // Franck QUESSETTE -- Franck.Quessette@uvsq.fr
 // Version de novembre 2009
 //
-// Adapté pour l'ISN par E.Villani (2012-2014)
+// AdaptÃ© pour l'ISN par E.Villani (2012-2014)
 // ################################################
 
 #include "../toolbox.h"
@@ -21,27 +21,27 @@
 	int verdana_ok = 0;	
 
 // ############################
-// Fenêtres et gestion du temps
+// FenÃªtres et gestion du temps
 // ############################
-// Variables d'accès à l'affichage
+// Variables d'accÃ¨s Ã  l'affichage
 SDL_Window   *SDL_screen = NULL;
 SDL_Renderer *SDL_renderer = NULL;
 int soft_renderer = 0;
 	
-// Pour ne pas oublier l'appel à initialiser_fenetre()
+// Pour ne pas oublier l'appel Ã  initialiser_fenetre()
 int __initialiser_fenetre_is_already_called = 0;
 
 // Si SDL_AFFICHE_AUTO vaut 1, l'affichage
 // est automatiquement fait pour chaque objet
-// Sinon il faut le fait à la main
+// Sinon il faut le fait Ã  la main
 int SDL_AFFICHE_AUTO = 1;
 
-// Les constantes de taille max de l'écran
+// Les constantes de taille max de l'Ã©cran
 #define MAX_WIDTH  2048
 #define MAX_HEIGHT 2048
 
-// Initialisation de la fenêtre sur laquelle on dessine
-// W et H sont la largeur et la hauteur désirée.
+// Initialisation de la fenÃªtre sur laquelle on dessine
+// W et H sont la largeur et la hauteur dÃ©sirÃ©e.
 void init_inputs();
 void _set_window(int W, int H, char *titre, Uint32 flags)
 {
@@ -101,7 +101,7 @@ void _set_window(int W, int H, char *titre, Uint32 flags)
 	
 	init_inputs();
 	
-	// Remplit la fenêtre de noir
+	// Remplit la fenÃªtre de noir
 	remplir_ecran(noir);
 	affiche_auto_on();
 	affiche_tout();
@@ -131,8 +131,8 @@ void initialiser_ecran(int W, int H, char *titre){
 void affiche_auto_on () { SDL_AFFICHE_AUTO = 1; }
 void affiche_auto_off() { SDL_AFFICHE_AUTO = 0; }
 
-// Affiche tous les objets et vérifie que la fonction initialiser_fenetre 
-// a été appelée précédemment et affiche un message d'erreur sinon.	
+// Affiche tous les objets et vÃ©rifie que la fonction initialiser_fenetre 
+// a Ã©tÃ© appelÃ©e prÃ©cÃ©demment et affiche un message d'erreur sinon.	
 void check_events();
 void affiche_tout()
 {	
@@ -153,10 +153,10 @@ void affiche_tout()
 	check_events();
 }
 
-// Chronomètre élémentaire, précis à la milliseconde.
+// ChronomÃ¨tre Ã©lÃ©mentaire, prÃ©cis Ã  la milliseconde.
 inline int chrono() { return SDL_GetTicks(); }
 
-// Attend le nombre de millisecondes passé en argument
+// Attend le nombre de millisecondes passÃ© en argument
 void attendre(int millisecondes) { SDL_Delay(millisecondes); }
 
 
@@ -165,7 +165,7 @@ void attendre(int millisecondes) { SDL_Delay(millisecondes); }
 // ###############################
 Uint32	   renderer_color;
 
-// Pas de canal alpha => canal alpha à 255
+// Pas de canal alpha => canal alpha Ã  255
 inline COULEUR couleur_RGB(int r, int g, int b)
 {   return couleur_RGBA( r, g, b, 255);  }
 
@@ -196,15 +196,15 @@ void SetRenderColor( COULEUR couleur ){
 
 
 // ###############################
-// Interactivité
+// InteractivitÃ©
 // ###############################
 typedef struct {
-	unsigned char key_pressed[ SDL_NUM_SCANCODES ];		// Tableau des touches appuyées
+	unsigned char key_pressed[ SDL_NUM_SCANCODES ];		// Tableau des touches appuyÃ©es
 	unsigned char key_count[ SDL_NUM_SCANCODES ];		// Tableau des nb d'appuis sur les touches
 
 	POINT mouse, mouse_rel, mouse_clic[3] ;		// Positions de la souris: absolue, relative, 
 												//		derniers clics gauche, droite et milieu
-	unsigned char mouse_pressed[ 3 ];		// Tableau des boutons de souris appuyés
+	unsigned char mouse_pressed[ 3 ];		// Tableau des boutons de souris appuyÃ©s
 	unsigned char mouse_count[ 3 ];		// Tableau des nombres de clics
 } INPUT;
 INPUT in;
@@ -231,18 +231,18 @@ void check_events(){
 	while(SDL_PollEvent(&event))
 	{
 		switch( event.type ) {
-			/* Si l'utilisateur a demandé à fermer la fenêtre, on quitte */
+			/* Si l'utilisateur a demandÃ© Ã  fermer la fenÃªtre, on quitte */
 			case SDL_QUIT:
 				quitter(0);
 			
-			/* l'utilisateur a appuyé sur une touche */
+			/* l'utilisateur a appuyÃ© sur une touche */
 			case SDL_KEYDOWN:
 				sc=event.key.keysym.scancode;
 				if( sc==KB_ECHAP ) quitter(0);  // Touche Echap, on quitte
 				in.key_pressed[sc]=1;		// Sinon on note la touche
 				break;
 				
-			/* l'utilisateur a relaché sur une touche */
+			/* l'utilisateur a relachÃ© sur une touche */
 			case SDL_KEYUP:
 				sc=event.key.keysym.scancode;
 				in.key_count[sc]++;	   // On note le relachement de la touche
@@ -260,7 +260,7 @@ void check_events(){
 
 			case SDL_MOUSEBUTTONDOWN:
 				b = event.button.button - 1; 				// 0 = gauche, 1 = milieu, 2 = droite
-				if(0<=b && b<=2) in.mouse_pressed[b]=1;		// On note que le bouton est pressé
+				if(0<=b && b<=2) in.mouse_pressed[b]=1;		// On note que le bouton est pressÃ©
 				break;
 			
 			case SDL_MOUSEBUTTONUP:
@@ -280,12 +280,12 @@ void check_events(){
 }
 
 
-// Renvoie le ou les flèches appuyées sous forme d'un déplacement en 
-//	x négatif = nombre d'appuis sur la flèche gauche
-//	x positif = nombre d'appuis sur la flèche droite
-//	y négatif = nombre d'appuis sur la flèche bas
-//	y positif = nombre d'appuis sur la flèche haut
-// Instruction non bloquante, si aucune flèche n'a été appuyée les champs valent 0
+// Renvoie le ou les flÃ¨ches appuyÃ©es sous forme d'un dÃ©placement en 
+//	x nÃ©gatif = nombre d'appuis sur la flÃ¨che gauche
+//	x positif = nombre d'appuis sur la flÃ¨che droite
+//	y nÃ©gatif = nombre d'appuis sur la flÃ¨che bas
+//	y positif = nombre d'appuis sur la flÃ¨che haut
+// Instruction non bloquante, si aucune flÃ¨che n'a Ã©tÃ© appuyÃ©e les champs valent 0
 POINT lit_fleches()
 {
 	check_events();
@@ -293,13 +293,13 @@ POINT lit_fleches()
 	POINT dep = {0,0};
 	// dep.x = dep.y = 0;
 	
-	// Touches pressées
+	// Touches pressÃ©es
 	if (in.key_pressed[KB_GAUCHE])	dep.x -= MINDEP;
 	if (in.key_pressed[KB_DROITE])	dep.x += MINDEP;
 	if (in.key_pressed[KB_HAUT])	dep.y += MINDEP;
 	if (in.key_pressed[KB_BAS])		dep.y -= MINDEP;
 
-	// Touches relachées
+	// Touches relachÃ©es
 	dep.x -= MINDEP*in.key_count[KB_GAUCHE];	in.key_count[KB_GAUCHE] = 0;
 	dep.x += MINDEP*in.key_count[KB_DROITE];	in.key_count[KB_DROITE] = 0;
 	dep.y += MINDEP*in.key_count[KB_HAUT];		in.key_count[KB_HAUT] = 0;
@@ -308,9 +308,9 @@ POINT lit_fleches()
 	return dep;
 }
 
-// Renvoie déplacement de souris
-//	Meme sémantique que lit_fleches()
-// Instruction non bloquante, si la souris n'a pas bougé, les champs valent 0.
+// Renvoie dÃ©placement de souris
+//	Meme sÃ©mantique que lit_fleches()
+// Instruction non bloquante, si la souris n'a pas bougÃ©, les champs valent 0.
 POINT lit_souris()
 {
 	POINT dep = in.mouse_rel;
@@ -355,7 +355,7 @@ int touche_nb_appuis( int b )  {
 }
 
 // Attend que l'utilisateur clique avec le bouton gauche
-// Renvoie les coordonnées du point cliqué
+// Renvoie les coordonnÃ©es du point cliquÃ©
 // Instruction bloquante
 POINT attendre_clic()
 {
@@ -405,7 +405,7 @@ inline void libere_souris() { SDL_SetRelativeMouseMode(0); }
 // Dessin basique
 // ##############
 	
-// Remplissage de tout l'écran
+// Remplissage de tout l'Ã©cran
 void remplir_ecran(COULEUR couleur)
 {		
 	SetRenderColor( couleur );
@@ -517,15 +517,15 @@ void _cercle_plein(int cx, int cy, int rayon, COULEUR couleur)
 	SetRenderColor( couleur );
 	
 	while(x<=y)
-	{   // Algo => http://fr.wikipedia.org/wiki/Algorithme_de_tracé_de_cercle_d%27Andres
+	{   // Algo => http://fr.wikipedia.org/wiki/Algorithme_de_tracÃ©_de_cercle_d%27Andres
 		//   P => A, B, ou C
-		//		dans le cas A on ne trace pas l'original, mais les symétriques
-		//		dans le cas B on trace pas les symétriques, mais l'original
+		//		dans le cas A on ne trace pas l'original, mais les symÃ©triques
+		//		dans le cas B on trace pas les symÃ©triques, mais l'original
 		//		dans le cas C on trace les deux! 
 		
 		if( d>2*(x-1) )				 // CAS A
 		{
-			// Tracé des "symétriques"
+			// TracÃ© des "symÃ©triques"
 			x1 = cx-y;	 x2 = cx+y;
 			yh = HEIGHT-(cy+x)-1;	   SDL_RenderDrawLine( SDL_renderer, x1,yh, x2,yh );
 			if (x!=0)
@@ -536,7 +536,7 @@ void _cercle_plein(int cx, int cy, int rayon, COULEUR couleur)
 		}
 		else if( d<= 2*(rayon-y) )	  // CAS B
 		{
-			// Tracé des "originaux"
+			// TracÃ© des "originaux"
 			x1 = cx-x;	 x2 = cx+x;
 			yh = HEIGHT-(cy+y)-1;	   SDL_RenderDrawLine( SDL_renderer, x1,yh, x2,yh );
 			yh = HEIGHT-(cy-y)-1;	   SDL_RenderDrawLine( SDL_renderer, x1,yh, x2,yh );
@@ -595,11 +595,11 @@ void dessine_triangle_plein(POINT p1, POINT p2, POINT p3, COULEUR couleur)
 	float a12, b12, a23, b23, a31, b31;
 	float s1, s2, s3;
 	// La droite passant par les point pi et pj
-	// a pour équation : y = aij x  +  bij
+	// a pour Ã©quation : y = aij x  +  bij
 	a12 = (p1.y-p2.y)/(float)(p1.x-p2.x);   b12 = p1.y - a12*p1.x;
 	a23 = (p2.y-p3.y)/(float)(p2.x-p3.x);   b23 = p2.y - a23*p2.x;
 	a31 = (p3.y-p1.y)/(float)(p3.x-p1.x);   b31 = p3.y - a31*p3.x;
-	// Le signe de sk détermine de quel coté pk est de la droite [pi,pj]
+	// Le signe de sk dÃ©termine de quel cotÃ© pk est de la droite [pi,pj]
 	s3 = p3.y - (a12*p3.x + b12);
 	s1 = p1.y - (a23*p1.x + b23);
 	s2 = p2.y - (a31*p2.x + b31);
@@ -614,7 +614,7 @@ void dessine_triangle_plein(POINT p1, POINT p2, POINT p3, COULEUR couleur)
 		for (j=miny;j<maxy;j++)
 		{
 			ok = 1;
-			// On vérifie que le point (i,j) est du bon coté
+			// On vÃ©rifie que le point (i,j) est du bon cotÃ©
 			// des 3 droites du triangle
 			if (s3 * (j - (a12*i + b12)) < 0) ok = 0;
 			if (s1 * (j - (a23*i + b23)) < 0) ok = 0;
@@ -629,11 +629,11 @@ void dessine_triangle_plein(POINT p1, POINT p2, POINT p3, COULEUR couleur)
 // #####
 
 // Affiche du texte avec
-//	  Le texte est passé dans l'argument "a_ecrire" 
-//	  la police est celle définie par la constante POLICE_NAME 
-//	  la taille est passée en argument
-//	  l'argument p est le point en haut à gauche où le texte s'affiche
-//	  la COULEUR C passée en argument est la couleur d'affichage
+//	  Le texte est passÃ© dans l'argument "a_ecrire" 
+//	  la police est celle dÃ©finie par la constante POLICE_NAME 
+//	  la taille est passÃ©e en argument
+//	  l'argument p est le point en haut Ã  gauche oÃ¹ le texte s'affiche
+//	  la COULEUR C passÃ©e en argument est la couleur d'affichage
 void dessine_texte(char *a_ecrire, int taille, POINT p, COULEUR C)
 {
 	int i;
@@ -687,9 +687,62 @@ void dessine_texte(char *a_ecrire, int taille, POINT p, COULEUR C)
 	} else
 		printf("%s\n",a_ecrire);
 }
-
+void dessine_texte_gras_DimitriNicolas(char *a_ecrire, int taille, POINT p, COULEUR C)
+{
+    int i;
+    SDL_Color couleur;
+    SDL_Surface *surf = NULL;
+    
+    static int premiere_fois = 1;
+    static TTF_Font *police[256];
+    TTF_Font *pol;
+    
+    // Initialisation de la TTF
+    if (premiere_fois) {
+        for (i=0;i<256;i++) police[i] = NULL;
+        premiere_fois = 0;	}
+    // Ouverture de la police
+    if (taille>=256)
+        pol = TTF_OpenFont(POLICE_NAME, taille);
+    else {
+        if (police[taille]==NULL) police[taille] = TTF_OpenFont(POLICE_NAME, taille);
+        pol = police[taille];
+    }
+    
+    couleur.a = (C & 0xFF000000) >> 24;
+    couleur.r = (C & 0x00FF0000) >> 16;
+    couleur.g = (C & 0x0000FF00) >> 8;
+    couleur.b = (C & 0x000000FF);
+    
+    // Ecriture du texte dans la SDL_Surface "texte" en mode Blended (optimal)
+    if (pol) {
+        TTF_SetFontStyle(pol, TTF_STYLE_BOLD);
+        surf = ( soft_renderer )
+        ? TTF_RenderText_Solid(pol, a_ecrire, couleur)      // Renderer software = rendu solide
+        : TTF_RenderText_Blended(pol, a_ecrire, couleur);   // Renderer hardware = rendu alpha
+    }
+    
+    if (surf)  {
+        // Conversion en texture
+        SDL_Texture *texture = SDL_CreateTextureFromSurface( SDL_renderer, surf);
+        
+        SDL_Rect dest;
+        dest.x = p.x;
+        dest.y = HEIGHT - p.y;
+        dest.w = surf->w;
+        dest.h = surf->h;
+        
+        SDL_FreeSurface(surf);
+        
+        SDL_RenderCopy(SDL_renderer, texture, NULL, &dest);
+        if (SDL_AFFICHE_AUTO) affiche_tout();
+        
+        SDL_DestroyTexture( texture );		
+    } else
+        printf("%s\n",a_ecrire);
+}
 // Affiche un entier
-//	  Meme sémantique que dessine_texte()
+//	  Meme sÃ©mantique que dessine_texte()
 void dessine_entier(int n,  int taille, POINT p, COULEUR C)
 {
 	char s[32];
@@ -697,8 +750,8 @@ void dessine_entier(int n,  int taille, POINT p, COULEUR C)
 	dessine_texte(s,taille,p,C);
 }
 
-// Affiche dans la fenêtre graphique comme dans une fenêtre
-// shell mais sans déroulement. Commence en haut et se termine en bas.
+// Affiche dans la fenÃªtre graphique comme dans une fenÃªtre
+// shell mais sans dÃ©roulement. Commence en haut et se termine en bas.
 void ecrire_texte(char *a_ecrire)
 {
 	static char s[256];
@@ -755,7 +808,7 @@ IMAGE charge_image( char* fichier ) {
 	// Chargement du fichier
 	im->surface = SDL_LoadBMP( fichier );
 	
-	// Erreur (mauvais format? Fichier non trouvé?)
+	// Erreur (mauvais format? Fichier non trouvÃ©?)
 	if ( im->surface == NULL) {
 		printf( "(*) Erreur lors du chargement de l'image: %s\n", SDL_GetError() );
 		quitter(1);
@@ -818,7 +871,7 @@ void dessine_image_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym)
 	if (SDL_AFFICHE_AUTO) affiche_tout();	
 }
 
-// Récupérer la couleur d'un pixel sur une image
+// RÃ©cupÃ©rer la couleur d'un pixel sur une image
 COULEUR lit_pixel_image( IMAGE im, POINT P )
 {
 	if ( (P.x < im->surface->w) && (P.x >= 0) && (P.y < im->surface->h) && (P.y >= 0) )
@@ -849,7 +902,7 @@ void dessine_pixel_image( IMAGE im, POINT P, COULEUR c )
 	}
 }
 
-// Permet d'obtenir une deuxième copie d'une image en mémoire
+// Permet d'obtenir une deuxiÃ¨me copie d'une image en mÃ©moire
 IMAGE copie_image( IMAGE im ){
 	IMAGE dest = malloc( sizeof(IMAGE) );
 	
@@ -862,7 +915,7 @@ IMAGE copie_image( IMAGE im ){
 	return dest;
 }
 
-// Permet d'obtenir un image vide de dimension fixée
+// Permet d'obtenir un image vide de dimension fixÃ©e
 IMAGE image_vide( int largeur, int hauteur ) {
 	IMAGE im = malloc( sizeof(IMAGE) );
 
@@ -882,7 +935,7 @@ IMAGE image_vide( int largeur, int hauteur ) {
 // ######
 // Divers
 // ######
-// Helper: appelé automatiquement par quitter( error_code );
+// Helper: appelÃ© automatiquement par quitter( error_code );
 void quitter_graph() {
 	// Liberation de toutes les images ouvertes
 	while(nb_imgs!=0)
@@ -890,7 +943,7 @@ void quitter_graph() {
 		nb_imgs--;
 		IMAGE im = tab_img[ nb_imgs ];
 
-		// Si l'image en fin de tableau n'est pas libérée,
+		// Si l'image en fin de tableau n'est pas libÃ©rÃ©e,
 		//	appeler la fonction libere_image		
 		if ( im->surface!=NULL || im->texture!=NULL )
 		{
