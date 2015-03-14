@@ -13,7 +13,26 @@ void initialisation_projet(char *titre, int width, int height) {
     for(i = 0; i < NB_BOUTON; i++) {
         bouton[i] = i + 1;
     }
+    //Initialisation du tableau de couleur
+    palette[0]=couleur_RGB(0  ,0  ,0  );//0x000000;
+    palette[1]=couleur_RGB(64 ,64 ,64 );//0x404040;
+    palette[2]=couleur_RGB(255,0  ,0  );//0xFF0000
+    palette[3]=couleur_RGB(255,106,0  );//0xFF6A00;
+    palette[4]=couleur_RGB(255,216,0  );//0xFFD800;
+    palette[5]=couleur_RGB(182,255,0  );//0xB6FF00;
+    palette[6]=couleur_RGB(76 ,255,0  );//0x4CFF00;
+    palette[7]=couleur_RGB(0  ,255,33 );//0x00FF21;
+    palette[8]=couleur_RGB(0  ,255,144);//0x00FF90;
     
+    palette[9]=couleur_RGB(255,255,255);//0xFFFFFF;
+    palette[10]=couleur_RGB(128,128,128);//0x808080;
+    palette[11]=couleur_RGB(0  ,255,255);//0x00FFFF;
+    palette[12]=couleur_RGB(0  ,148,255);//0x0094FF;
+    palette[13]=couleur_RGB(0  ,38 ,255);//0x0026FF;
+    palette[14]=couleur_RGB(72 ,0  ,255);//0x4800FF;
+    palette[15]=couleur_RGB(178,0  ,255);//0xB200FF;
+    palette[16]=couleur_RGB(255,0  ,220);//0xFF00DC;
+    palette[17]=couleur_RGB(255,0  ,110);//0xFF006E;
     
     
     printf("Fin de l'initisalisation.\n");
@@ -91,7 +110,39 @@ void affichage_interface(int width, int height) {
     
     
     //////////////////PALETTE
-    //-----
+    p1.x=59; p1.y=41;
+    p2.x=196; p2.y=9;
+    dessine_rectangle(p1,p2,COULEUR_BORDURE);
+    
+    int i_palette;
+    p1.x=60; p1.y=40;
+    
+    for(i_palette=0; i_palette<NB_COULEUR; i_palette++){
+    
+        if(i_palette==9){p1.x=60; p1.y=25; p2.x=p1.x+15; p2.y=p1.y-15;}
+        
+        dessine_rectangle_plein(p1,p2,palette[i_palette]);
+        p1.x+=15; p2.x=p1.x+15; p2.y=p1.y-15;
+    }
+    
+    //Affichage des culeurs sélectionné
+    p1.x=19;p1.y=31; p2.x=p1.x+22; p2.y=p1.y-22;
+    dessine_rectangle_plein(p1,p2,COULEUR_BORDURE);
+    
+    p1.x=20;p1.y=30; p2.x=p1.x+20; p2.y=p1.y-20;
+    dessine_rectangle_plein(p1,p2,couleur_RGB(255,255,255));
+    
+    
+    p1.x=9;p1.y=41; p2.x=p1.x+22; p2.y=p1.y-22;
+    dessine_rectangle_plein(p1,p2,COULEUR_BORDURE);
+    
+    p1.x=10;p1.y=40; p2.x=p1.x+20; p2.y=p1.y-20;
+    dessine_rectangle_plein(p1,p2,couleur_RGB(0,0,0));
+    
+    //Option pour modifier la palette
+    p1.x=206; p1.y=35;
+    dessine_texte("Modifier la palette",12,p1,COULEUR_TEXTE);
+    
     /////////////////
     affiche_tout();
 }
