@@ -101,7 +101,7 @@ void affichage_interface(int width, int height) {
             p1.y -= 24;
             p2.y -= 24;
         }
-        dessine_rectangle_plein(p1, p2, COULEUR_BORDURE);//sera remplacé par le chargement d'une image
+        //dessine_rectangle_plein(p1, p2, COULEUR_BORDURE);//sera remplacé par le chargement d'une image
         
         
         for(u = p1.x; u < p2.x; u++) {
