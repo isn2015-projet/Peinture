@@ -81,9 +81,15 @@ void affichage_interface(int width, int height) {
     //informations bottom right (outil sélectionné + position curseur)
     p1.x = width-170; p1.y = 43;
     p2 = position_souris();
-    char coordonnees[30];
-    sprintf(coordonnees, "Position: %dx%d", p2.x-LARGEUR_MENU, p2.y-LARGEUR_MENU);
-    dessine_texte(coordonnees,12,p1,COULEUR_TEXTE);
+    if(p2.x-LARGEUR_MENU>=0 && p2.y-LARGEUR_MENU>=0)
+    {
+        char coordonnees[30];
+        sprintf(coordonnees, "Position: %dx%d", p2.x-LARGEUR_MENU, p2.y-LARGEUR_MENU);
+        dessine_texte(coordonnees,12,p1,COULEUR_TEXTE);
+    }
+    else {
+        dessine_texte("Position: -x-",12,p1,COULEUR_TEXTE);
+    }
     p1.y -= 20;
     dessine_texte(mode,12,p1,COULEUR_TEXTE);
     
