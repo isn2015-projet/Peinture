@@ -1,5 +1,6 @@
 //defines
 #define NB_BOUTON 13
+#define NB_COULEUR 18
 #define COULEUR_FOND couleur_RGB(255,255,255)
 #define COULEUR_COLONNE couleur_RGB(230,230,230)
 #define COULEUR_TEXTE couleur_RGB(0,0,0)
@@ -11,6 +12,9 @@
 //variables utilisées:
 int bouton[NB_BOUTON] = {0};
 char mode[200] = "Outil choisi: Aucun";
+COULEUR palette[NB_COULEUR];
+
+
 
 
 
@@ -30,4 +34,3 @@ char mode[200] = "Outil choisi: Aucun";
  12: Selection
  13: Texte
  */
- 
