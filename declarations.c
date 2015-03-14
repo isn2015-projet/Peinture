@@ -14,7 +14,26 @@ int bouton[NB_BOUTON] = {0};
 char mode[200] = "Outil choisi: Aucun";
 COULEUR palette[NB_COULEUR];
 
+//Initialisation du tableau de couleur
+palette[0]=couleur_RGB(0  ,0  ,0  );//0x000000;
+palette[1]=couleur_RGB(64 ,64 ,64 );//0x404040;
+palette[2]=couleur_RGB(255,0  ,0  );//0xFF0000
+palette[3]=couleur_RGB(255,106,0  );//0xFF6A00;
+palette[4]=couleur_RGB(255,216,0  );//0xFFD800;
+palette[5]=couleur_RGB(182,255,0  );//0xB6FF00;
+palette[6]=couleur_RGB(76 ,255,0  );//0x4CFF00;
+palette[7]=couleur_RGB(0  ,255,33 );//0x00FF21;
+palette[8]=couleur_RGB(0  ,255,144);//0x00FF90;
 
+palette[9]=couleur_RGB(255,255,255);//0xFFFFFF;
+palette[10]=couleur_RGB(128,128,128);//0x808080;
+palette[11]=couleur_RGB(0  ,255,255);//0x00FFFF;
+palette[12]=couleur_RGB(0  ,148,255);//0x0094FF;
+palette[13]=couleur_RGB(0  ,38 ,255);//0x0026FF;
+palette[14]=couleur_RGB(72 ,0  ,255);//0x4800FF;
+palette[15]=couleur_RGB(178,0  ,255);//0xB200FF;
+palette[16]=couleur_RGB(255,0  ,220);//0xFF00DC;
+palette[17]=couleur_RGB(255,0  ,110);//0xFF006E;
 
 
 
