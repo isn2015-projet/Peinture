@@ -50,16 +50,32 @@ void affichage_interface(int width, int height) {
     p2.x = LARGEUR_MENU; p2.y = height;
     dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
     
+    //colonne de gauche
+    POINT p1, p2;
+    p1.x = 0; p1.y = 0;
+    p2.x = LARGEUR_MENU; p2.y = height;
+    dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
+    
     //ligne du bas
     p1.x = 0; p1.y = 0;
     p2.x = width; p2.y = LARGEUR_MENU;
+    dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
+
+    //ligne du haut
+    p1.x = 0; p1.y = height;
+    p2.x = width; p2.y = height-(LARGEUR_MENU/2);
     dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
     
     //bordures
     p1.x = 0; p1.y = LARGEUR_MENU;
     p2.x = width; p2.y = LARGEUR_MENU;
     dessine_ligne(p1, p2, COULEUR_BORDURE);
-    p1.x = LARGEUR_MENU; p1.y = height;
+ 
+    p1.x = 0; p1.y = height-(LARGEUR_MENU/2);
+    p2.x = width; p2.y = height-(LARGEUR_MENU/2);
+    dessine_ligne(p1, p2, COULEUR_BORDURE);
+    
+    p1.x = LARGEUR_MENU; p1.y = height-(LARGEUR_MENU/2);
     p2.x = LARGEUR_MENU; p2.y = LARGEUR_MENU;
     dessine_ligne(p1, p2, COULEUR_BORDURE);
     //
