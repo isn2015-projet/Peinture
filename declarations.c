@@ -1,5 +1,5 @@
 //defines
-#define NB_BOUTON 7
+#define NB_BOUTON 3
 #define NB_COULEUR 18
 #define COULEUR_FOND couleur_RGB(255,255,255)
 #define COULEUR_COLONNE couleur_RGB(230,230,230)
