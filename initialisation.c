@@ -78,8 +78,11 @@ void affichage_interface(int width, int height) {
     //Affichage des boutons
     //on remplacera pas mal de truc par des defines
     int i_bouton = 0, duet = 0, bordure_bouton_top = /*remplacé par les define*/70;
+    int u, v, array = 0;
+    POINT pixel_icon;
     for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
     {
+        array = 0;
         if(i_bouton == 0)
         {
             p1.y = height-bordure_bouton_top;
@@ -99,7 +102,19 @@ void affichage_interface(int width, int height) {
             p2.y -= 24;
         }
         dessine_rectangle_plein(p1, p2, COULEUR_BORDURE);//sera remplacé par le chargement d'une image
-        dessine_entier(i_bouton+1,12,p1,COULEUR_TEXTE);//à enlever
+        
+        
+        for(u = p1.x; u < p2.x; u++) {
+            for(v = p1.y; v > p2.y; v--) {
+                pixel_icon.x = u;
+                pixel_icon.y = v;
+                dessine_pixel(pixel_icon, couleur_RGB(dec2hex_rgb(0, bouton_icons[i_bouton][array]),dec2hex_rgb(1, bouton_icons[i_bouton][array]), dec2hex_rgb(2, bouton_icons[i_bouton][array])));
+                array ++ ;
+                printf("%d\n",array);
+
+            }
+        }
+        //dessine_entier(i_bouton+1,12,p1,COULEUR_TEXTE);//à enlever
         
         duet = 1 - duet;
     }
@@ -108,6 +123,7 @@ void affichage_interface(int width, int height) {
     p1.y -= 40; p2.y -= 80;
     dessine_rectangle_plein(p1,p2,COULEUR_BORDURE);
     ///////////////////
+
     
     
     //////////////////PALETTE
