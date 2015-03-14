@@ -86,7 +86,7 @@ void affichage_interface(int width, int height) {
     ////////////////////TABLEAU DE BOUTON
     //Affichage des boutons
     //on remplacera pas mal de truc par des defines
-    int i_bouton = 0, duet = 0, bordure_bouton_top = /*remplacé par les define*/70;
+    int i_bouton = 0, duet = 0, bordure_bouton_top = /*remplacé par les define*/10;
     int u, v, array = 0;
     POINT pixel_icon;
     for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
