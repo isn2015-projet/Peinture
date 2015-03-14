@@ -12,6 +12,7 @@ void initialisation_projet(char *titre, int width, int height) {
     int i;
     for(i = 0; i < NB_BOUTON; i++) {
         bouton[i] = i + 1;
+        ouvre_fichier_icon(i);
     }
     //Initialisation du tableau de couleur
     palette[0]=couleur_RGB(0  ,0  ,0  );//0x000000;
