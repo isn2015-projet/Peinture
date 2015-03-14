@@ -110,7 +110,6 @@ void affichage_interface(int width, int height) {
                 pixel_icon.y = v;
                 dessine_pixel(pixel_icon, couleur_RGB(dec2hex_rgb(0, bouton_icons[i_bouton][array]),dec2hex_rgb(1, bouton_icons[i_bouton][array]), dec2hex_rgb(2, bouton_icons[i_bouton][array])));
                 array ++ ;
-                printf("%d\n",array);
 
             }
         }
