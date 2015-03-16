@@ -10,7 +10,7 @@
 #define LARGEUR_MENU 50
 
 //variables utilisées:
-int bouton[NB_BOUTON] = {0};
+int bouton[NB_BOUTON];
 int bouton_icons[NB_BOUTON][576];
 char mode[200] = "Outil choisi: Aucun";
 COULEUR palette[NB_COULEUR];
