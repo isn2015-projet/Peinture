@@ -16,8 +16,8 @@ char mode[200] = "Outil choisi: Aucun";
 COULEUR palette[NB_COULEUR];
 
 typedef struct{
-COULEUR pri;
-COULEUR sec;
+	COULEUR pri;
+	COULEUR sec;
 }couleurs;
 
 couleurs colour;
