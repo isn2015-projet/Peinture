@@ -5,7 +5,7 @@ void initialisation_projet(char *titre, int width, int height) {
     
     initialiser_fenetre(width, height, titre);
     affiche_auto_off();
-    
+    remplir_ecran(COULEUR_FOND);
     
     
     //Création du tableau bouton où nous stockerons les informations liés aux boutons
@@ -35,13 +35,15 @@ void initialisation_projet(char *titre, int width, int height) {
     palette[16]=couleur_RGB(255,0  ,220);//0xFF00DC;
     palette[17]=couleur_RGB(255,0  ,110);//0xFF006E;
     
+    colour.pri=couleur_RGB(0  ,0  ,0  );
+    colour.sec=couleur_RGB(255,255,255);
     
     printf("Fin de l'initisalisation.\n");
 }
 
 
 void affichage_interface(int width, int height) {
-    remplir_ecran(COULEUR_FOND);
+
     
     //colonne de gauche
     POINT p1, p2;
@@ -172,19 +174,19 @@ void affichage_interface(int width, int height) {
         p1.x+=15; p2.x=p1.x+15; p2.y=p1.y-15;
     }
     
-    //Affichage des culeurs sélectionné
+    //Affichage des couleurs sélectionné
     p1.x=19;p1.y=31; p2.x=p1.x+22; p2.y=p1.y-22;
     dessine_rectangle_plein(p1,p2,COULEUR_BORDURE);
     
     p1.x=20;p1.y=30; p2.x=p1.x+20; p2.y=p1.y-20;
-    dessine_rectangle_plein(p1,p2,couleur_RGB(255,255,255));
+    dessine_rectangle_plein(p1,p2,colour.sec);
     
     
     p1.x=9;p1.y=41; p2.x=p1.x+22; p2.y=p1.y-22;
     dessine_rectangle_plein(p1,p2,COULEUR_BORDURE);
     
     p1.x=10;p1.y=40; p2.x=p1.x+20; p2.y=p1.y-20;
-    dessine_rectangle_plein(p1,p2,couleur_RGB(0,0,0));
+    dessine_rectangle_plein(p1,p2,colour.pri);
     
     //Option pour modifier la palette
     p1.x=206; p1.y=35;
