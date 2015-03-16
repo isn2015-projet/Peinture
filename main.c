@@ -12,6 +12,7 @@ int main( int argc, char** argv )
     {
         affichage_interface(WIDTH, HEIGHT);
         gestion_palette();
+        dessin();
         attendre(20);
     }
     
