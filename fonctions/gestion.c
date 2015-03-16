@@ -49,7 +49,19 @@ void gestion_interface(){
         if(Bouton(clic_gch,p1.x,p2.x,p2.y,p1.y)==true)
         {
             p1.x = WIDTH-170; p1.y = 23;
-            sprintf(mode, "Outil n%d", i_bouton+1);
+            switch(i_bouton){
+                case 0:
+                    sprintf(mode, "Outil: Pinceau");
+                    break;
+                case 1:
+                    sprintf(mode, "Outil: Brosse");
+                    break;
+                case 2:
+                    sprintf(mode, "Outil: Aerographe");
+                    break;
+                default :
+                    sprintf(mode, "Outil: undefined");
+            }
             dessine_texte(mode,12,p1,COULEUR_TEXTE);
             for (i_selection_outil = 0; i_selection_outil < NB_BOUTON; i_selection_outil++) {
                 if(i_selection_outil==i_bouton)
