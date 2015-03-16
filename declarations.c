@@ -15,7 +15,12 @@ int bouton_icons[NB_BOUTON][576];
 char mode[200] = "Outil choisi: Aucun";
 COULEUR palette[NB_COULEUR];
 
+typedef struct{
+COULEUR pri;
+COULEUR sec;
+}couleurs;
 
+couleurs colour;
 
 /*
  Dimension d'un bouton: 24px - 24px
