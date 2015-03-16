@@ -22,6 +22,9 @@ COULEUR sec;
 
 couleurs colour;
 
+BOOL selection_outil[NB_BOUTON];
+
+
 /*
  Dimension d'un bouton: 24px - 24px
  1: Pinceau
