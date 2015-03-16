@@ -48,7 +48,6 @@ void gestion_interface(){
         }
         if(Bouton(clic_gch,p1.x,p2.x,p2.y,p1.y)==true)
         {
-            printf("%d\n",i_bouton);
             p1.x = WIDTH-170; p1.y = 23;
             sprintf(mode, "Outil n%d", i_bouton+1);
             dessine_texte(mode,12,p1,COULEUR_TEXTE);
