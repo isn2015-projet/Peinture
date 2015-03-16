@@ -11,7 +11,7 @@
 
 //variables utilisées:
 int bouton[NB_BOUTON];
-char *bouton_noms[NB_BOUTON][20]
+char *bouton_noms[NB_BOUTON][20];
 int bouton_icons[NB_BOUTON][576];
 char mode[200] = "Outil choisi: Aucun";
 COULEUR palette[NB_COULEUR];
