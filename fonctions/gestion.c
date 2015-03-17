@@ -1,10 +1,12 @@
-BOOL Bouton(POINT p, int x_min, int x_max, int y_min, int y_max){
-    if(p.x>x_min && p.x<x_max && p.y>y_min && p.y<y_max){return True;}
+BOOL Bouton(POINT p, POINT p1, POINT p2){
+    /*if(p.x>x_min && p.x<x_max && p.y>y_min && p.y<y_max){return True;}
+    else {return False;}*/
+    if(p.x>p1.x && p.x<p2.x && p.y>p2.y && p.y<p1.y){return True;}
     else {return False;}
 }
 
 void gestion_interface(){
-    POINT clic_gch,clic_drt;
+    POINT clic_gch,clic_drt,p1,p2;
     int i;
 
     clic_gch=position_clic( CLIC_GCH );
@@ -12,12 +14,20 @@ void gestion_interface(){
 
     for(i=0;i<NB_COULEUR;i++){
         if(i<NB_COULEUR/2){
-            if(Bouton(clic_gch,60+i*15,75+i*15,25,40)==true){colour.pri=palette[i];}
-            if(Bouton(clic_drt,60+i*15,75+i*15,25,40)==true){colour.sec=palette[i];}
+            p1.x=60+i*15;p2.x=75+i*15;
+            p1.y=25;p2.y=40;
+            //if(Bouton(clic_gch,60+i*15,75+i*15,25,40)==true){colour.pri=palette[i];}
+            //if(Bouton(clic_drt,60+i*15,75+i*15,25,40)==true){colour.sec=palette[i];}
+            if(Bouton(clic_gch,p1,p2)==true){colour.pri=palette[i];}
+            if(Bouton(clic_drt,p1,p2)==true){colour.sec=palette[i];}
         }
         if(i>=NB_COULEUR/2){
-            if(Bouton(clic_gch,-75+i*15,-60+i*15,10,25)==true){colour.pri=palette[i];}
-            if(Bouton(clic_drt,-75+i*15,-60+i*15,10,25)==true){colour.sec=palette[i];}
+            p1.x=-75+i*15;p2.x=-60+i*15;
+            p1.y=10;p2.y=25;
+            //if(Bouton(clic_gch,-75+i*15,-60+i*15,10,25)==true){colour.pri=palette[i];}
+            //if(Bouton(clic_drt,-75+i*15,-60+i*15,10,25)==true){colour.sec=palette[i];}
+            if(Bouton(clic_gch,p1,p2)==true){colour.pri=palette[i];}
+            if(Bouton(clic_drt,p1,p2)==true){colour.sec=palette[i];}
         }
     }
     
