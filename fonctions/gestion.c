@@ -1,6 +1,4 @@
 BOOL Bouton(POINT p, POINT p1, POINT p2){
-    /*if(p.x>x_min && p.x<x_max && p.y>y_min && p.y<y_max){return True;}
-    else {return False;}*/
     if(p.x>p1.x && p.x<p2.x && p.y>p2.y && p.y<p1.y){return True;}
     else {return False;}
 }
@@ -15,17 +13,13 @@ void gestion_interface(){
     for(i=0;i<NB_COULEUR;i++){
         if(i<NB_COULEUR/2){
             p1.x=60+i*15;p2.x=75+i*15;
-            p1.y=25;p2.y=40;
-            //if(Bouton(clic_gch,60+i*15,75+i*15,25,40)==true){colour.pri=palette[i];}
-            //if(Bouton(clic_drt,60+i*15,75+i*15,25,40)==true){colour.sec=palette[i];}
+            p1.y=40;p2.y=25;
             if(Bouton(clic_gch,p1,p2)==true){colour.pri=palette[i];}
             if(Bouton(clic_drt,p1,p2)==true){colour.sec=palette[i];}
         }
         if(i>=NB_COULEUR/2){
             p1.x=-75+i*15;p2.x=-60+i*15;
-            p1.y=10;p2.y=25;
-            //if(Bouton(clic_gch,-75+i*15,-60+i*15,10,25)==true){colour.pri=palette[i];}
-            //if(Bouton(clic_drt,-75+i*15,-60+i*15,10,25)==true){colour.sec=palette[i];}
+            p1.y=25;p2.y=10;
             if(Bouton(clic_gch,p1,p2)==true){colour.pri=palette[i];}
             if(Bouton(clic_drt,p1,p2)==true){colour.sec=palette[i];}
         }
@@ -34,7 +28,6 @@ void gestion_interface(){
     
     
     int i_bouton = 0, duet = 0, bordure_bouton_top = 10;
-    POINT p1, p2;
     int i_selection_outil;
     for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
     {
@@ -56,7 +49,7 @@ void gestion_interface(){
             p1.y -= 24;
             p2.y -= 24;
         }
-        if(Bouton(clic_gch,p1.x,p2.x,p2.y,p1.y)==true)
+        if(Bouton(clic_gch,p1,p2)==true)
         {
             p1.x = WIDTH-170; p1.y = 23;
             switch(i_bouton){
