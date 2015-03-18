@@ -22,7 +22,7 @@ typedef struct{
 
 couleurs colour;
 
-BOOL selection_outil[NB_BOUTON];
+int outil;
 
 
 /*
