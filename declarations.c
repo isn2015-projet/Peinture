@@ -12,7 +12,7 @@
 //variables utilisées:
 int bouton[NB_BOUTON];
 int bouton_icons[NB_BOUTON][576];
-char mode[200] = "Outil choisi: Aucun";
+char mode[200] = "Outil : Pinceau";
 COULEUR palette[NB_COULEUR];
 
 typedef struct{
@@ -22,7 +22,7 @@ typedef struct{
 
 couleurs colour;
 
-int outil;
+int outil=0;
 
 
 /*
