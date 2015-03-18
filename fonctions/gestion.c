@@ -37,8 +37,6 @@ void gestion_interface(){
             p2.y = HEIGHT-bordure_bouton_top-24;
         }
         if(duet == 1) {
-            p1.x = 1;
-            p2.x = 25;
             p1.x = 25;
             p2.x = 49;
         }
