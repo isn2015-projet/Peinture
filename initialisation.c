@@ -16,10 +16,7 @@ void initialisation_projet(char *titre, int width, int height) {
     }
     
     
-    int i_selection_outil;
-    for (i_selection_outil = 0; i_selection_outil < NB_BOUTON; i_selection_outil++) {
-        selection_outil[i_selection_outil] = false;
-    }
+    
     //Initialisation du tableau de couleur
     palette[0]=couleur_RGB(0  ,0  ,0  );//0x000000;
     palette[1]=couleur_RGB(64 ,64 ,64 );//0x404040;
