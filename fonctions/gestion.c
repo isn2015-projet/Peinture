@@ -77,3 +77,48 @@ void gestion_interface(){
         duet = 1 - duet;
     }
 }
+
+void gestion_fonction(){
+    switch(outil){
+        case 0:
+            pinceau();
+            break;
+        /*case 1:
+            brosse();
+            break;*/
+        case 2:
+            aerographe();
+            break;
+        /*case 3:
+            remplissage();
+            break;
+        case 4:
+            gomme();
+            break;
+        case 5:
+            pipette();
+            break;
+        case 6:
+            ligne();
+            break;
+        case 7:
+            rectangle();
+            break;
+        case 8:
+            polygone();
+            break;
+        case 9:
+            ellipse();
+            break;
+        case 10:
+            rectangle_arrondi();
+            break;
+        case 11:
+            selection();
+            break;
+        case 12:
+            texte();
+            break;*/
+    }
+
+}
