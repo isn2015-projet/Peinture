@@ -28,7 +28,6 @@ void gestion_interface(){
     
     
     int i_bouton = 0, duet = 0;
-    int i_selection_outil;
     for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
     {
         if(i_bouton == 0)
@@ -64,15 +63,7 @@ void gestion_interface(){
                     sprintf(mode, "Outil: undefined");
             }
             dessine_texte(mode,12,p1,COULEUR_TEXTE);
-            for (i_selection_outil = 0; i_selection_outil < NB_BOUTON; i_selection_outil++) {
-                if(i_selection_outil==i_bouton)
-                {
-                    selection_outil[i_selection_outil] = true;
-                }
-                else {
-                    selection_outil[i_selection_outil] = false;
-                }
-            }
+            outil=i_bouton;
         }
         duet = 1 - duet;
     }
