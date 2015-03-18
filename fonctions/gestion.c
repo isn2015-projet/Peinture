@@ -27,14 +27,14 @@ void gestion_interface(){
     
     
     
-    int i_bouton = 0, duet = 0, bordure_bouton_top = 10;
+    int i_bouton = 0, duet = 0;
     int i_selection_outil;
     for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
     {
         if(i_bouton == 0)
         {
-            p1.y = HEIGHT-bordure_bouton_top;
-            p2.y = HEIGHT-bordure_bouton_top-24;
+            p1.y = HEIGHT-10;
+            p2.y = HEIGHT-34;
         }
         if(duet == 1) {
             p1.x = 25;
