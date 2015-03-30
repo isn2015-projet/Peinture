@@ -3,3 +3,4 @@
 #include <tgmath.h>
 #include "fonctions/dessin.c"
 #include "fonctions/gestion.c"
+#include "fonctions/options.c"
