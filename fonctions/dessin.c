@@ -25,7 +25,7 @@ void aerographe(){
         P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10));
         P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10));
             
-        dessine_pixel(P,colour.pri);
+        dessine_pixel_image(sans_titre,P,colour.pri);
         affiche_tout();
     }
     
@@ -35,6 +35,6 @@ void aerographe(){
         P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10));
         P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10));
         
-        dessine_pixel(P,colour.sec);
+        dessine_pixel_image(sans_titre,P,colour.sec);
     }
 }
