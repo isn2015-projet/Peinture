@@ -154,7 +154,7 @@ void affichage_interface(int width, int height) {
         duet = 1 - duet;
     }
     //Affichage des options
-    affiche_options(p1, p2);
+    affiche_options_menu(p1, p2);
     ///////////////////
 
     
