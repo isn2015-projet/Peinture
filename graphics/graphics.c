@@ -921,7 +921,7 @@ IMAGE image_vide( int largeur, int hauteur ) {
 
 	// Creation de la surface remplie de "noir transparent"
 	im->surface = SDL_CreateRGBSurface(0, largeur, hauteur, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
-	SDL_FillRect(im->surface, NULL, 0x00000000);
+	SDL_FillRect(im->surface, NULL, 0xFFFFFFFF);
 
 	// Texture initialement vide
 	im->texture = NULL;
