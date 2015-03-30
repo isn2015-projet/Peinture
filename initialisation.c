@@ -5,7 +5,7 @@ void initialisation_projet(char *titre, int width, int height) {
     
     initialiser_fenetre(width, height, titre);
     affiche_auto_off();
-    remplir_ecran(COULEUR_FOND);
+    sans_titre=image_vide(1150,625);
     
     
     //Création du tableau bouton où nous stockerons les informations liés aux boutons
@@ -47,7 +47,9 @@ void initialisation_projet(char *titre, int width, int height) {
 
 void affichage_interface(int width, int height) {
 
-    
+    POINT P;
+    P.x=50;P.y=50;
+    dessine_image(sans_titre,P);
     //colonne de gauche
     POINT p1, p2;
     p1.x = 0; p1.y = 0;
