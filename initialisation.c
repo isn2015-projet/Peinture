@@ -154,11 +154,7 @@ void affichage_interface(int width, int height) {
         duet = 1 - duet;
     }
     //Affichage des options
-    p1.x = 3; p2.x = LARGEUR_MENU-3;
-    p1.y -= 40; p2.y -= 80;
-    dessine_rectangle(p1,p2,COULEUR_BORDURE);
-    p1.x += 10;
-    dessine_texte("opt.",12,p1,COULEUR_TEXTE);
+    affiche_options(p1, p2);
     ///////////////////
 
     
