@@ -24,6 +24,7 @@ couleurs colour;
 
 int outil=0;
 
+IMAGE sans_titre;
 
 /*
  Dimension d'un bouton: 24px - 24px
