@@ -17,7 +17,7 @@ char *affiche_option_specifique() {
              }
             break;
         default:
-            return "null";
+            return "moyen";
             break;
     }
 }
@@ -27,7 +27,7 @@ void affiche_options_menu(POINT p1, POINT p2) {
 
     POINT rectl, recbr;
     rectl.x = 3; rectl.y = p1.y - 40;
-    recbr.x = LARGEUR_MENU-3; recbr.y = rectl.y - 100;
+    recbr.x = LARGEUR_MENU-3; recbr.y = rectl.y - 60;
     dessine_rectangle(rectl,recbr,COULEUR_BORDURE);
     
     POINT text;
