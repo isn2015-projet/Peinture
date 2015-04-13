@@ -14,7 +14,7 @@ void pinceau(){
 
     POINT p;
     p=position_souris();
-    int hauteur=4,i;
+    int hauteur=2*option,i;
     if/*while*/(bouton_appuye(CLIC_GCH)==true && p.x>50 && p.y>50){
         p=position_souris();
         for(i=hauteur;i>0;i--){
