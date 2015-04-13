@@ -1,15 +1,30 @@
+void cercle(POINT P,int h,COULEUR c){
+    int i;
+    POINT p;
+    for(i=0;i<h*20;i++){
+        p.x=floor(P.x+cos(i)*h)-50;
+        p.y=floor(P.y+sin(i)*h)-50;
+            
+        dessine_pixel_image(sans_titre,p,c);
+    }
+    
+}
+
 void pinceau(){
+
     POINT p;
     p=position_souris();
-
+    int hauteur=4,i;
     if/*while*/(bouton_appuye(CLIC_GCH)==true && p.x>50 && p.y>50){
         p=position_souris();
-        dessine_cercle_plein(p,4,colour.pri);
+        for(i=hauteur;i>0;i--){
+            cercle(p,i,colour.pri);}
         }
 
     if/*while*/(bouton_appuye(CLIC_DRT)==true && p.x>50 && p.y>50){
         p=position_souris();
-        dessine_cercle_plein(p,4,colour.sec);
+        for(i=hauteur;i>0;i--){
+            cercle(p,i,colour.sec);}
         }
 }
 
