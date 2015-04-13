@@ -37,8 +37,8 @@ void aerographe(){
     if/*while*/(bouton_appuye(CLIC_GCH)==true && p.x>50 && p.y>50){
         cosinus=(reel_aleatoire()+entier_aleatoire(4))*2;
             
-        P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10));
-        P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10));
+        P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10)-50);
+        P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10)-50);
             
         dessine_pixel_image(sans_titre,P,colour.pri);
         affiche_tout();
