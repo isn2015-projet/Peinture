@@ -14,6 +14,7 @@ int bouton[NB_BOUTON];
 int bouton_icons[NB_BOUTON][576];
 char mode[200] = "Outil : Pinceau";
 COULEUR palette[NB_COULEUR];
+int option = 1; // par défaut: à 1 (plus petit)
 
 typedef struct{
 	COULEUR pri;
