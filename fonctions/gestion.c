@@ -10,6 +10,26 @@ void gestion_interface(){
     clic_gch=position_clic( CLIC_GCH );
     clic_drt=position_clic( CLIC_DRT );
 
+
+    //gestion options
+    POINT t1, t2;
+    t1.x = 10; t1.y = 457;
+    t2.x = 15; t2.y = 447;
+    if(Bouton(clic_gch,t1,t2)==true){
+        if(option!=1) {
+            option--;
+        }
+    }
+    t1.x = 35; t1.y = 457;
+    t2.x = 40; t2.y = 447;
+    if(Bouton(clic_gch,t1,t2)==true){
+        if(option!=3) {
+            option++;
+        }    
+   }
+    
+
+
     for(i=0;i<NB_COULEUR;i++){
         if(i<NB_COULEUR/2){
             p1.x=60+i*15;p2.x=75+i*15;
