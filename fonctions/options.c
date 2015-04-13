@@ -47,7 +47,7 @@ void affiche_options_menu(POINT p1, POINT p2) {
     dessine_triangle_plein(t1, t2, t3, noir); 
     
     text.x = LARGEUR_MENU/2-4;
-    text.y = text.y - 20;   
+    text.y = text.y - 21;   
     dessine_entier(option, 12, text, noir);
     
     text.x = 7;
