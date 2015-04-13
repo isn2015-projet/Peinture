@@ -12,7 +12,7 @@ char *affiche_option_specifique() {
                     return " large";
                     break;
                 default:
-                    return "null";
+                    return "moyen";
                     break;
              }
             break;
