@@ -17,17 +17,15 @@ void pinceau(){
     p=position_souris();
     int hauteur=2*option,i;
     if/*while*/(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU){
-        if(bouton_appuye(CLIC_GCH)==true) {
             for(i=hauteur;i>0;i--){
-                cercle(p,i,colour.pri);
+                if(bouton_appuye(CLIC_GCH)==true) {
+                    cercle(p,i,colour.pri);
+                }
+                else if(bouton_appuye(CLIC_DRT)==true) {
+                    cercle(p,i,colour.sec);
+                }
             }
-        }
-        else if(bouton_appuye(CLIC_DRT)==true) {
-            for(i=hauteur;i>0;i--){
-                cercle(p,i,colour.sec);
-            }
-            
-        }
+        
     }
 }
 
