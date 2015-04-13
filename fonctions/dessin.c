@@ -1,15 +1,17 @@
 void cercle(POINT P,int h,COULEUR c){
     int i;
-    POINT p;
+    POINT p,centre;
+    centre.x = P.x - LARGEUR_MENU;
+    centre.y = P.y - LARGEUR_MENU;
+    dessine_pixel_image(sans_titre,centre,c);
     for(i=0;i<h*20;i++){
-        p.x=floor(P.x+cos(i)*h)-50;
-        p.y=floor(P.y+sin(i)*h)-50;
+        p.x=round(P.x+cos(i)*h)-LARGEUR_MENU;
+        p.y=round(P.y+sin(i)*h)-LARGEUR_MENU;
             
         dessine_pixel_image(sans_titre,p,c);
     }
     
 }
-
 void pinceau(){
 
     POINT p;
