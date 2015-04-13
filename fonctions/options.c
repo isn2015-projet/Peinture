@@ -1,6 +1,6 @@
 int affiche_option_specifique(POINT p1, POINT p2) {
     int bordure_option = 6;
-    int coord_y_derniere_option;
+    int coord_y_derniere_option = 0;
     POINT p12, p22;
     switch(outil){
         case 0:
