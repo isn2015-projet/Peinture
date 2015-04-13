@@ -13,21 +13,22 @@ void cercle(POINT P,int h,COULEUR c){
     
 }
 void pinceau(){
-
     POINT p;
     p=position_souris();
     int hauteur=2*option,i;
-    if/*while*/(bouton_appuye(CLIC_GCH)==true && p.x>50 && p.y>50){
-        p=position_souris();
-        for(i=hauteur;i>0;i--){
-            cercle(p,i,colour.pri);}
+    if/*while*/(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU){
+        if(bouton_appuye(CLIC_GCH)==true) {
+            for(i=hauteur;i>0;i--){
+                cercle(p,i,colour.pri);
+            }
         }
-
-    if/*while*/(bouton_appuye(CLIC_DRT)==true && p.x>50 && p.y>50){
-        p=position_souris();
-        for(i=hauteur;i>0;i--){
-            cercle(p,i,colour.sec);}
+        else if(bouton_appuye(CLIC_DRT)==true) {
+            for(i=hauteur;i>0;i--){
+                cercle(p,i,colour.sec);
+            }
+            
         }
+    }
 }
 
 void aerographe(){
