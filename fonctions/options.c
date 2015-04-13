@@ -1,9 +1,25 @@
-void affiche_option_specifique(POINT p1, POINT p2) {
+char *affiche_option_specifique() {
     switch(outil){
         case 0:
+            switch(option){
+                case 1:
+                    return "   fin";
+                    break;
+                case 2:
+                    return "moyen";
+                    break;
+                case 3:
+                    return " large";
+                    break;
+                default:
+                    return "null";
+                    break;
+             }
+            break;
+        default:
+            return "null";
             break;
     }
-    
 }
 
 void affiche_options_menu(POINT p1, POINT p2) {
@@ -33,4 +49,8 @@ void affiche_options_menu(POINT p1, POINT p2) {
     text.x = LARGEUR_MENU/2-4;
     text.y = text.y - 20;   
     dessine_entier(option, 12, text, noir);
+    
+    text.x = 7;
+    text.y = text.y - 20;  
+    dessine_texte(affiche_option_specifique(), 10, text, noir);
 }
