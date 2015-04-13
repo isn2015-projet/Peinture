@@ -59,6 +59,9 @@ void gestion_interface(){
                 case 2:
                     sprintf(mode, "Outil: Aerographe");
                     break;
+                case 5:
+                    sprintf(mode, "Outil: pipette");
+                    break;
                 default :
                     sprintf(mode, "Outil: undefined");
             }
@@ -85,11 +88,11 @@ void gestion_fonction(){
             break;
         case 4:
             gomme();
-            break;
+            break;*/
         case 5:
             pipette();
             break;
-        case 6:
+        /*case 6:
             ligne();
             break;
         case 7:
