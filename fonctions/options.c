@@ -1,6 +1,18 @@
+void pointeur_souris() {
+    POINT p1;
+    if(option==0) {//pnc
+        p1 = position_souris();
+        dessine_cercle(p1, 2*option, COULEUR_BORDURE);
+    }
+    if(option==1) {//aergph
+        p1 = position_souris();
+        dessine_cercle(p1, 10*option, COULEUR_BORDURE);
+    }
+}
+
 char *affiche_option_specifique() {
     switch(outil){
-        case 0:
+        case 0: //pinceau
             switch(option){
                 case 1:
                     return "   fin";
@@ -16,7 +28,7 @@ char *affiche_option_specifique() {
                     break;
              }
             break;
-        case 2:
+        case 2: //aerographe
             switch(option){
                 case 1:
                     return "   fin";
@@ -38,11 +50,10 @@ char *affiche_option_specifique() {
     }
 }
 
-void affiche_options_menu(POINT p1, POINT p2) {
-
-
+void affiche_options_menu() {
+    
     POINT rectl, recbr;
-    rectl.x = 3; rectl.y = p1.y - 40;
+    rectl.x = 3; rectl.y = 482;
     recbr.x = LARGEUR_MENU-3; recbr.y = rectl.y - 60;
     dessine_rectangle(rectl,recbr,COULEUR_BORDURE);
     
@@ -63,10 +74,10 @@ void affiche_options_menu(POINT p1, POINT p2) {
     dessine_triangle_plein(t1, t2, t3, noir); 
     
     text.x = LARGEUR_MENU/2-4;
-    text.y = text.y - 21;   
+    text.y = text.y - 21;
     dessine_entier(option, 12, text, noir);
     
     text.x = 7;
-    text.y = text.y - 20;  
+    text.y = text.y - 20;
     dessine_texte(affiche_option_specifique(), 10, text, noir);
 }
