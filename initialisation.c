@@ -50,6 +50,7 @@ void affichage_interface(int width, int height) {
     POINT P;
     P.x=50;P.y=50;
     dessine_image(sans_titre,P);
+    pointeur_souris();
     //colonne de gauche
     POINT p1, p2;
     p1.x = 0; p1.y = 0;
@@ -154,7 +155,7 @@ void affichage_interface(int width, int height) {
         duet = 1 - duet;
     }
     //Affichage des options
-    affiche_options_menu(p1, p2);
+    affiche_options_menu();
     ///////////////////
 
     
