@@ -1,10 +1,10 @@
 void pointeur_souris() {
     POINT p1;
-    if(option==0) {//pnc
+    if(outil==0) {//pnc
         p1 = position_souris();
         dessine_cercle(p1, 2*option, COULEUR_BORDURE);
     }
-    if(option==1) {//aergph
+    if(outil==2) {//aergph
         p1 = position_souris();
         dessine_cercle(p1, 10*option, COULEUR_BORDURE);
     }
