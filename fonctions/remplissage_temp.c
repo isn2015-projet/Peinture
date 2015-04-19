@@ -14,11 +14,16 @@ remplissage(1, -1, -1, noir);
 void remplissage(int remplissage_initialisation, int x, int y, COULEUR colorPicked) {
     POINT pos_souris_initialisation;
     COULEUR colorPicked_initialisation;
-   
+    int i, j;
    
     if(remplissage_initialisation==1) {
         pos_souris_initialisation = position_souris();
         if(bouton_appuye(CLIC_GCH)==TRUE && pos_souris_initialisation.x>LARGEUR_MENU && pos_souris_initialisation.x < WIDTH && pos_souris_initialisation.y>LARGEUR_MENU && pos_souris_initialisation.y < HEIGHT) {
+            for(i = 0; i < 1150; i++) {
+                for(j = 0; j < 625; j++) {
+                    points_remplissage[i][j] = 0;
+                }
+            }
             pos_souris_initialisation.x -= LARGEUR_MENU;
             pos_souris_initialisation.y -= LARGEUR_MENU;
             colorPicked_initialisation = lit_pixel_image(sans_titre, pos_souris_initialisation);
