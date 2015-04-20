@@ -20,3 +20,40 @@ void pipette(){
         colour.sec=lit_pixel_image( sans_titre, p );
     }
 }
+
+void ligne(POINT p1,POINT p2){
+    POINT p;
+    POINT p1,p2,p;
+    float m1,m2,o1,o2,n1,n2;
+        
+    o1=p1.x;
+    o2=p1.y;
+    p=p1;
+    
+    n1=p1.y-p2.y;
+    n2=p1.x-p2.x;
+    
+    m1=n1/n2;
+    m2=n2/n1;
+        
+    if((m2>m1 && m1>0) || (m1>m2 && m1<0)){
+        while(p.x!=p2.x && p.y!=p2.y){
+            dessine_pixel(p,rouge);
+            p.x=o1;
+            p.y=o2;
+            if(p2.x>p1.x){o1+=1;o2+=m1;}
+            if(p2.x<p1.x){o1-=1;o2-=m1;}
+    }}
+    
+    if((m1>m2 && m1>0) || (m2>m1 && m1<0)){
+        while(p.x!=p2.x && p.y!=p2.y){
+            dessine_pixel(p,rouge);
+            p.x=o1;
+            p.y=o2;
+            if(p2.y>p1.y){o1+=m2;o2+=1;}
+            if(p2.y<p1.y){o1-=m2;o2-=1;}
+    }}
+    
+    if(n1==0 || n2==0){dessine_ligne(p1,p2,rouge);}
+    
+}
