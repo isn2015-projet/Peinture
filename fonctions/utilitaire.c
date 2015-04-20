@@ -1,3 +1,8 @@
+BOOL Bouton(POINT p, POINT p1, POINT p2){
+    if(p.x>p1.x && p.x<p2.x && p.y>p2.y && p.y<p1.y){return True;}
+    else {return False;}
+}
+
 void pipette(){
     POINT p,p1,p2;
     
