@@ -37,6 +37,10 @@ int option = 1; // par défaut: à 1 (plus petit, var max: 3)
 //Structure qui représente notre document vierge sur lequel on va dessiner:
 IMAGE sans_titre;
 
+
+//Pour le remplissage:
+POINT T_REMPLISSAGE[1150*625];
+int T_REMPLISSAGE_INT[1151][626];
 /*
  Dimension d'un bouton: 24px - 24px (prendre n-1)
  1: Pinceau
