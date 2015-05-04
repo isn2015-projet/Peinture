@@ -55,3 +55,30 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
             if(p2.y<p1.y){o1-=m2;o2-=1;}
     }}
     }
+
+
+
+void sauvegarde_document() {
+    printf("Sauvegarde en cours!\n");
+ 
+    int dimx = 1150, dimy = 625;
+    int i, j;
+    FILE *fp = fopen("sans_titre.bmp", "w+"); /* b - binary mode */
+    fprintf(fp, "P6\n%d %d\n255\n", dimx, dimy);
+    for (j = 0; j < dimy; ++j)
+    {
+        for (i = 0; i < dimx; ++i)
+        {
+            POINT p;
+            p.x = i;
+            p.y = HEIGHT-j-76;
+            static unsigned char color[3];
+            color[0] = ((lit_pixel_image(sans_titre, p) & 0x00FF0000) >> 16);  /* red */
+            color[1] = ((lit_pixel_image(sans_titre, p) & 0x0000FF00) >> 8);  /* green */
+            color[2] = (lit_pixel_image(sans_titre, p) & 0x000000FF);  /* blue */
+            fwrite(color, 1, 3, fp);
+        }
+    }
+    (void) fclose(fp);
+    printf("Sauvegarde ok !\n");
+}
