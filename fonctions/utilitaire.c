@@ -21,7 +21,7 @@ void pipette(){
     }
 }
 
-void ligne(POINT p1,POINT p2,COULEUR c){
+void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     POINT p;
     float m1,m2,o1,o2,n1,n2;
     int l,i;
