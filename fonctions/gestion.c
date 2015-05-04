@@ -75,6 +75,9 @@ void gestion_interface(){
                 case 2:
                     sprintf(mode, "Outil: Aerographe");
                     break;
+                case 3:
+                    sprintf(mode, "Outil: Remplissage");
+                    break;
                 case 5:
                     sprintf(mode, "Outil: pipette");
                     break;
@@ -105,10 +108,10 @@ void gestion_fonction(){
         case 2:
             aerographe();
             break;
-        /*case 3:
+        case 3:
             remplissage();
             break;
-        case 4:
+        /*case 4:
             gomme();
             break;*/
         case 5:
