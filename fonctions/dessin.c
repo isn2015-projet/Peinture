@@ -57,4 +57,21 @@ void aerographe(){
 
 }
 
+void ligne(){
+    POINT p,pi,P;
+    P.x=LARGEUR_MENU;P.y=LARGEUR_MENU;
+    p=position_souris();
+    if(bouton_appuye(CLIC_GCH)==true){
+        pi=p;
+        while(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU && bouton_appuye(CLIC_GCH)==true){
+            p=position_souris();
+            dessine_image(sans_titre,P);
+            dessine_ligne(pi,p,colour.pri);
+            affiche_tout();
+        }
+        pi.x-=50;pi.y-=50;p.x-=50;p.y-=50;
+        dessine_ligne_image(pi,p,colour.pri);
+    }
+}
 
+void polygone(){}
