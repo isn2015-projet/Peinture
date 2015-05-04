@@ -30,14 +30,14 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     o2=p1.y;
     p=p1;
     
-    n1=p1.y-p2.y;
-    n2=p1.x-p2.x;
+    n1=p2.y-p1.y;
+    n2=p2.x-p1.x;
     
     m1=n1/n2;
     m2=n2/n1;
-    l=sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y));
+    l=sqrt((n2)*(n2)+(n1)*(n1));
     
-    if((m2>m1 && m1>=0) || (m1>m2 && m1<=0)){
+    if((m2>=m1 && m1>=0) || (m1>=m2 && m1<=0)){
         for(i=0;i<l;i++){
             dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
@@ -46,9 +46,9 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
             if(p2.x<p1.x){o1-=1;o2-=m1;}
     }}
     
-    if((m1>m2 && m1>=0) || (m2>m1 && m1<=0)){
+    if((m1>=m2 && m1>=0) || (m2>=m1 && m1<=0)){
         for(i=0;i<l;i++){
-            dessine_pixel(sans_titre,p,c);
+            dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
             if(p2.y>p1.y){o1+=m2;o2+=1;}
