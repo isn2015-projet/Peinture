@@ -74,4 +74,82 @@ void ligne(){
     }
 }
 
+
+
+void remplissage() {
+    if(bouton_appuye(CLIC_GCH)==true) {
+        int k = 0;
+        int courant = 0;
+        POINT p, p2;
+        COULEUR prevc;
+        p.x = 0;
+        p.y = 0;
+        int nb_pixel_a_traiter = 0;
+        int i, j;
+        for(i = 0; i < 1150*625; i++) {
+            T_REMPLISSAGE[i] = p;
+        }
+        for(i = 0; i < 1151; i++) {
+            for(j = 0; j < 626; j++) {
+                T_REMPLISSAGE_INT[i][j] = 0;
+            }
+        }
+        p = position_souris();
+        prevc = lit_pixel_image(sans_titre,p);
+        T_REMPLISSAGE[k] = p;
+        nb_pixel_a_traiter++;
+        
+        while(nb_pixel_a_traiter > 0) {
+            p.x = T_REMPLISSAGE[courant].x;
+            p.y = T_REMPLISSAGE[courant].y;
+   
+            p2.x = p.x + 1;
+            p2.y = p.y;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.x<WIDTH && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            
+            p2.x = p.x - 1;
+            p2.y = p.y;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.x>WIDTH  && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            
+            p2.x = p.x;
+            p2.y = p.y + 1;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.y<HEIGHT  && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            
+            p2.x = p.x;
+            p2.y = p.y - 1;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.y>HEIGHT  && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            dessine_pixel_image(sans_titre,p,colour.pri);
+            printf("%d\n",nb_pixel_a_traiter);
+            courant++;
+            nb_pixel_a_traiter--;
+
+        }
+    }
+    
+}
+
 void polygone(){}
