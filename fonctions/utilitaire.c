@@ -81,4 +81,13 @@ void sauvegarde_document() {
     }
     (void) fclose(fp);
     printf("Sauvegarde ok !\n");
+    
+    
+    time_t rawtime;
+    struct tm * timeinfo;
+    
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
+    
+    sprintf(derniere_sauvegarde, "%s", asctime (timeinfo) );
 }
