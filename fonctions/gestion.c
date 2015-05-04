@@ -78,6 +78,9 @@ void gestion_interface(){
                 case 5:
                     sprintf(mode, "Outil: pipette");
                     break;
+                case 6:
+                    sprintf(mode, "Outil: Ligne");
+                    break;
                 case 8:
                     sprintf(mode, "Outil: Polygone");
                     break;
@@ -111,10 +114,10 @@ void gestion_fonction(){
         case 5:
             pipette();
             break;
-        /*case 6:
+        case 6:
             ligne();
             break;
-        case 7:
+        /*case 7:
             rectangle();
             break;*/
         case 8:
