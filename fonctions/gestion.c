@@ -78,6 +78,9 @@ void gestion_interface(){
                 case 5:
                     sprintf(mode, "Outil: pipette");
                     break;
+                case 8:
+                    sprintf(mode, "Outil: Polygone");
+                    break;
                 default :
                     sprintf(mode, "Outil: undefined");
             }
@@ -113,11 +116,11 @@ void gestion_fonction(){
             break;
         case 7:
             rectangle();
-            break;
+            break;*/
         case 8:
             polygone();
             break;
-        case 9:
+        /*case 9:
             ellipse();
             break;
         case 10:
