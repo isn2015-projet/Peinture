@@ -66,11 +66,12 @@ void affichage_interface(int width, int height) {
     p2.x = width; p2.y = height-(LARGEUR_MENU/2);
     dessine_rectangle_plein(p1, p2, COULEUR_COLONNE);
     
-    p1.x=10; p1.y=height-4;
+     p1.x=10; p1.y=height-4;
     dessine_texte_gras_DimitriNicolas("Menu: ",12,p1,COULEUR_TEXTE);
-    p1.x=70;
-    dessine_texte("Nouvelle image      Ouvrir une image       Enregistrer l'image",12,p1,COULEUR_TEXTE);
-    
+     p1.x=70;
+     char texte_menu[300];
+     sprintf(texte_menu, "Nouvelle image      Ouvrir une image       Enregistrer l'image (date de la derniere sauvegarde: %s)", derniere_sauvegarde);
+     dessine_texte(texte_menu,12,p1,COULEUR_TEXTE);    
    
     //bordures
     p1.x = 0; p1.y = LARGEUR_MENU;
