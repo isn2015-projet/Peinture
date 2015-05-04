@@ -15,7 +15,9 @@ void initialisation_projet(char *titre, int width, int height) {
         ouvre_fichier_icon(i);
     }
     
-    
+    //Pour le remplissage:
+POINT T_REMPLISSAGE[1150*625];
+int T_REMPLISSAGE_INT[1151][626];
     
     //Initialisation du tableau de couleur
     palette[0]=couleur_RGB(0  ,0  ,0  );//0x000000;
