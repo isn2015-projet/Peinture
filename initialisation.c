@@ -101,6 +101,9 @@ void affichage_interface(int width, int height) {
         else if(p2.x-LARGEUR_MENU<0 && p2.y-LARGEUR_MENU>=0) {
             dessine_texte("Position: barre d'outil",12,p1,COULEUR_TEXTE);
         }
+        else if(p2.y-LARGEUR_MENU<0) {
+            dessine_texte("Position: palette",12,p1,COULEUR_TEXTE);
+        }
         else {
             dessine_texte("Position: non defini",12,p1,COULEUR_TEXTE);
         }
