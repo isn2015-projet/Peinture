@@ -41,6 +41,11 @@ IMAGE sans_titre;
 //Pour le remplissage:
 POINT T_REMPLISSAGE[1150*625];
 int T_REMPLISSAGE_INT[1151][626];
+
+//Date de la dernière sauvegarde:
+char derniere_sauvegarde[200] = "jamais";
+
+
 /*
  Dimension d'un bouton: 24px - 24px (prendre n-1)
  1: Pinceau
