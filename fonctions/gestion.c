@@ -24,7 +24,16 @@ void gestion_interface(){
    }
     
     
-
+    //gestion sauvegarde
+    POINT save1, save2;
+    save1.x = 271+LARGEUR_MENU;
+    save1.y = 646+LARGEUR_MENU;
+    save2.x = 405+LARGEUR_MENU;
+    save2.y = 624+LARGEUR_MENU;
+    if(Bouton(clic_gch,save1, save2)==true){
+        sauvegarde_document();
+    }
+    
 
     for(i=0;i<NB_COULEUR;i++){
         if(i<NB_COULEUR/2){
