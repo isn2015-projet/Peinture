@@ -87,14 +87,32 @@ void gestion_interface(){
                 case 3:
                     sprintf(mode, "Outil: Remplissage");
                     break;
+                case 4:
+                    sprintf(mode, "Outil: Gomme");
+                    break;
                 case 5:
-                    sprintf(mode, "Outil: pipette");
+                    sprintf(mode, "Outil: Pipette");
                     break;
                 case 6:
                     sprintf(mode, "Outil: Ligne");
                     break;
+                case 7:
+                    sprintf(mode, "Outil: Rectangle");
+                    break;
                 case 8:
                     sprintf(mode, "Outil: Polygone");
+                    break;
+                case 9:
+                    sprintf(mode, "Outil: Ellipse");
+                    break;
+                case 10:
+                    sprintf(mode, "Outil: Rectangle Arrondi");
+                    break;
+                case 11:
+                    sprintf(mode, "Outil: Selection");
+                    break;
+                case 12:
+                    sprintf(mode, "Outil: Texte");
                     break;
                 default :
                     sprintf(mode, "Outil: undefined");
