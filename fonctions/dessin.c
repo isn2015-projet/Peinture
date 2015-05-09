@@ -88,6 +88,33 @@ void ligne(){
         pi.x-=50;pi.y-=50;p.x-=50;p.y-=50;
         dessine_ligne_image(pi,p,colour.pri);
     }
+    if(bouton_appuye(CLIC_DRT)==true){
+        pi=p;
+        while(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU && bouton_appuye(CLIC_DRT)==true){
+            p=position_souris();
+            dessine_image(sans_titre,P);
+            dessine_ligne(pi,p,colour.sec);
+            
+            
+            //fixed: les bordures de la barre d'outil disparaissaient
+            p1.x = 0; p1.y = LARGEUR_MENU;
+            p2.x = WIDTH; p2.y = LARGEUR_MENU;
+            dessine_ligne(p1, p2, COULEUR_BORDURE);
+            
+            p1.x = 0; p1.y = HEIGHT-(LARGEUR_MENU/2);
+            p2.x = WIDTH; p2.y = HEIGHT-(LARGEUR_MENU/2);
+            dessine_ligne(p1, p2, COULEUR_BORDURE);
+            
+            p1.x = LARGEUR_MENU; p1.y = HEIGHT-(LARGEUR_MENU/2);
+            p2.x = LARGEUR_MENU; p2.y = LARGEUR_MENU;
+            dessine_ligne(p1, p2, COULEUR_BORDURE);
+            //fin fixed
+            
+            affiche_tout();
+        }
+        pi.x-=50;pi.y-=50;p.x-=50;p.y-=50;
+        dessine_ligne_image(pi,p,colour.sec);
+    }
 }
 
 
