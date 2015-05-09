@@ -24,7 +24,7 @@ void pipette(){
 void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     POINT p;
     float m1,m2,o1,o2,n1,n2;
-    int l,i;
+    int i;
     
     o1=p1.x;
     o2=p1.y;
@@ -33,12 +33,15 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     n1=p2.y-p1.y;
     n2=p2.x-p1.x;
     
+    if((n1<0 && abs(n1)>n2) || (n1>0 && n2<0 && abs(n2)>n1)){
+    n1=p1.y-p2.y;
+    n2=p1.x-p2.x;}
+    
     m1=n1/n2;
     m2=n2/n1;
-    l=sqrt((n2)*(n2)+(n1)*(n1));
     
     if((m2>=m1 && m1>=0) || (m1>=m2 && m1<=0)){
-        for(i=0;i<l;i++){
+        for(i=0;i<n2;i++){
             dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
@@ -47,7 +50,7 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     }}
     
     if((m1>=m2 && m1>=0) || (m2>=m1 && m1<=0)){
-        for(i=0;i<l;i++){
+        for(i=0;i<n1;i++){
             dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
