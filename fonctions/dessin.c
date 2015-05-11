@@ -282,7 +282,40 @@ void remplissage() {
     }
    
 }
-void polygone(){}
+void polygone(){
+    POINT p,p1,po1,po2,P;
+    
+    P.x=LARGEUR_MENU;
+    P.y=LARGEUR_MENU;
+    p=position_souris();
+    
+    while(bouton_appuye(CLIC_GCH)==true){
+        p1=p;
+        while(bouton_appuye(CLIC_GCH)==false){
+            p=position_souris();
+            dessine_ligne(p1,p,colour.pri);
+            
+            //fixed: les bordures de la barre d'outil disparaissaient
+            po1.x = 0;     po1.y = LARGEUR_MENU;
+            po2.x = WIDTH; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            //fin fixed
+            
+            affiche_tout();
+            dessine_image(sans_titre,P);
+        }
+        p1.x-=50; p1.y-=50; p.x-=50; p.y-=50;
+        dessine_ligne_image(p1,p,colour.pri);    
+    }
+}
 
 void rectangle(){
     POINT p,p1,p2,p3,P,po1,po2;
