@@ -29,6 +29,19 @@ void pinceau(){
     }
 }
 
+void gomme(){
+    POINT p;
+    p=position_souris();
+    int hauteur=2*option,i;
+    if(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU){
+        for(i=hauteur;i>0;i--){
+            if(bouton_appuye(CLIC_GCH)==true) {
+                cercle(p,i,blanc);
+            }
+        }
+    }
+}
+
 void aerographe(){
     POINT p,P;
     float cosinus=0;
