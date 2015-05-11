@@ -198,7 +198,88 @@ void remplissage() {
 
         }
     }
-    
-}
 
+
+
+
+
+    if(bouton_appuye(CLIC_DRT)==true) {
+        POINT p, p2, pdata;
+        p = position_souris();
+        p.x -= LARGEUR_MENU;
+        p.y -= LARGEUR_MENU;
+        if(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU) {
+            
+        int k = 0;
+        int courant = 0;
+        COULEUR prevc;
+        pdata.x = 0;
+        pdata.y = 0;
+        int nb_pixel_a_traiter = 0;
+        int i, j;
+        for(i = 0; i < 1150*625; i++) {
+            T_REMPLISSAGE[i] = pdata;
+        }
+        for(i = 0; i < 1151; i++) {
+            for(j = 0; j < 626; j++) {
+                T_REMPLISSAGE_INT[i][j] = 0;
+            }
+        }
+        prevc = lit_pixel_image(sans_titre,p);
+        T_REMPLISSAGE[k] = p;
+        nb_pixel_a_traiter++;
+        
+        while(nb_pixel_a_traiter > 0) {
+            p.x = T_REMPLISSAGE[courant].x;
+            p.y = T_REMPLISSAGE[courant].y;
+   
+            p2.x = p.x + 1;
+            p2.y = p.y;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.x<WIDTH-LARGEUR_MENU && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                //printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            
+            p2.x = p.x - 1;
+            p2.y = p.y;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.x>0  && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                //printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            
+            p2.x = p.x;
+            p2.y = p.y + 1;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.y<HEIGHT-(LARGEUR_MENU+20)  && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                //printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            
+            p2.x = p.x;
+            p2.y = p.y - 1;
+            if(lit_pixel_image(sans_titre,p2) == prevc && p2.y>0  && T_REMPLISSAGE_INT[p2.x][p2.y] == 0) {
+                nb_pixel_a_traiter++;
+                k++;
+                T_REMPLISSAGE[k] = p2;
+                //printf("%d - %d\n", p2.x, p2.y);
+                T_REMPLISSAGE_INT[p2.x][p2.y] = 1;
+            }
+            dessine_pixel_image(sans_titre,p,colour.sec);
+            //printf("%d\n",nb_pixel_a_traiter);
+            courant++;
+            nb_pixel_a_traiter--;
+        }
+
+        }
+    }
+   
+}
 void polygone(){}
