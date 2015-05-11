@@ -283,3 +283,87 @@ void remplissage() {
    
 }
 void polygone(){}
+
+void rectangle(){
+    POINT p,p1,p2,p3,P,po1,po2;
+    
+    P.x=LARGEUR_MENU;
+    P.y=LARGEUR_MENU;
+    p=position_souris();
+    
+    if(bouton_appuye(CLIC_GCH)==true){
+        p1=p;
+        while(bouton_appuye(CLIC_GCH)==true){
+            p=position_souris();
+            p2.x=p.x;   p2.y=p1.y;
+            p3.x=p1.x;  p3.y=p.y;
+            
+            dessine_ligne(p1,p2,colour.pri);
+            dessine_ligne(p1,p3,colour.pri);
+            dessine_ligne(p2,p,colour.pri);
+            dessine_ligne(p3,p,colour.pri);
+            
+            //fixed: les bordures de la barre d'outil disparaissaient
+            po1.x = 0;     po1.y = LARGEUR_MENU;
+            po2.x = WIDTH; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            //fin fixed
+            
+            affiche_tout();
+            dessine_image(sans_titre,P);
+        }
+    p1.x-=50; p1.y-=50; p2.x-=50; p2.y-=50;
+    p3.x-=50; p3.y-=50; p.x-=50;  p.y-=50;
+    
+    dessine_ligne_image(p1,p2,colour.pri);
+    dessine_ligne_image(p1,p3,colour.pri);
+    dessine_ligne_image(p2,p,colour.pri);
+    dessine_ligne_image(p3,p,colour.pri);
+    }
+    
+    if(bouton_appuye(CLIC_DRT)==true){
+        p1=p;
+        while(bouton_appuye(CLIC_DRT)==true){
+            p=position_souris();
+            p2.x=p.x;   p2.y=p1.y;
+            p3.x=p1.x;  p3.y=p.y;
+            
+            dessine_ligne(p1,p2,colour.sec);
+            dessine_ligne(p1,p3,colour.sec);
+            dessine_ligne(p2,p,colour.sec);
+            dessine_ligne(p3,p,colour.sec);
+            
+            //fixed: les bordures de la barre d'outil disparaissaient
+            po1.x = 0;     po1.y = LARGEUR_MENU;
+            po2.x = WIDTH; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            //fin fixed
+            
+            affiche_tout();
+            dessine_image(sans_titre,P);
+        }
+    p1.x-=50; p1.y-=50; p2.x-=50; p2.y-=50;
+    p3.x-=50; p3.y-=50; p.x-=50;  p.y-=50;
+    
+    dessine_ligne_image(p1,p2,colour.sec);
+    dessine_ligne_image(p1,p3,colour.sec);
+    dessine_ligne_image(p2,p,colour.sec);
+    dessine_ligne_image(p3,p,colour.sec);
+    }
+}
