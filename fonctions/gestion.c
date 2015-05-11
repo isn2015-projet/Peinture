@@ -108,12 +108,6 @@ void gestion_interface(){
                 case 10:
                     sprintf(mode, "Outil: Rectangle Arrondi");
                     break;
-                case 11:
-                    sprintf(mode, "Outil: Selection");
-                    break;
-                case 12:
-                    sprintf(mode, "Outil: Texte");
-                    break;
                 default :
                     sprintf(mode, "Outil: undefined");
             }
@@ -138,18 +132,18 @@ void gestion_fonction(){
         case 3:
             remplissage();
             break;
-        /*case 4:
+        case 4:
             gomme();
-            break;*/
+            break;
         case 5:
             pipette();
             break;
         case 6:
             ligne();
             break;
-        /*case 7:
+        case 7:
             rectangle();
-            break;*/
+            break;
         case 8:
             polygone();
             break;
@@ -158,12 +152,6 @@ void gestion_fonction(){
             break;
         case 10:
             rectangle_arrondi();
-            break;
-        case 11:
-            selection();
-            break;
-        case 12:
-            texte();
             break;*/
     }
 
