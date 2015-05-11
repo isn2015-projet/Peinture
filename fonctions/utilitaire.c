@@ -66,7 +66,7 @@ void sauvegarde_document() {
  
     int dimx = 1150, dimy = 625;
     int i, j;
-    FILE *fp = fopen("sans_titre.bmp", "w+"); /* b - binary mode */
+    FILE *fp = fopen("sans_titre.bmp", "w+");
     fprintf(fp, "P6\n%d %d\n255\n", dimx, dimy);
     for (j = 0; j < dimy; ++j)
     {
@@ -76,10 +76,12 @@ void sauvegarde_document() {
             p.x = i;
             p.y = HEIGHT-j-76;
             static unsigned char color[3];
-            color[0] = ((lit_pixel_image(sans_titre, p) & 0x00FF0000) >> 16);  /* red */
-            color[1] = ((lit_pixel_image(sans_titre, p) & 0x0000FF00) >> 8);  /* green */
-            color[2] = (lit_pixel_image(sans_titre, p) & 0x000000FF);  /* blue */
-            fwrite(color, 1, 3, fp);
+            color[0] = ((lit_pixel_image(sans_titre, p) & 0x00FF0000) >> 16);  /* rouge */
+            color[1] = ((lit_pixel_image(sans_titre, p) & 0x0000FF00) >> 8);  /* vert */
+            color[2] = (lit_pixel_image(sans_titre, p) & 0x000000FF);  /* bleu */
+            fwrite(color, 1, 1, fp);
+            fwrite(color+1, 1, 1, fp);
+            fwrite(color+2, 1, 1, fp);
         }
     }
     (void) fclose(fp);
