@@ -41,7 +41,7 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     m2=n2/n1;
     
     if((m2>=m1 && m1>=0) || (m1>=m2 && m1<=0)){
-        for(i=0;i<n2;i++){
+        for(i=0;i<abs(n2)+1;i++){
             dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
@@ -50,7 +50,7 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     }}
     
     if((m1>=m2 && m1>=0) || (m2>=m1 && m1<=0)){
-        for(i=0;i<n1;i++){
+        for(i=0;i<abs(n1)+1;i++){
             dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
