@@ -418,7 +418,7 @@ void ellipse() {
                 m.x = i;  
                 for(j=LARGEUR_MENU;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
                     m.y = j;  
-                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+1) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-1)) {
                         dessine_pixel(m,colour.pri);  
                     }  
                 }  
@@ -445,7 +445,7 @@ void ellipse() {
                 m.x = i;  
                 for(j=0;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
                     m.y = j;  
-                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+1) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-1)) {
                         z.x = m.x - 50;
                         z.y = m.y - 50;
                         dessine_pixel_image(sans_titre,z,colour.pri);  
@@ -463,7 +463,7 @@ void ellipse() {
                 m.x = i;  
                 for(j=LARGEUR_MENU;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
                     m.y = j;  
-                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+1) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-1)) {
                         dessine_pixel(m,colour.sec);  
                     }  
                 }  
@@ -490,7 +490,7 @@ void ellipse() {
                 m.x = i;  
                 for(j=0;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
                     m.y = j;  
-                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+1) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-1)) {
                         z.x = m.x - 50;
                         z.y = m.y - 50;
                         dessine_pixel_image(sans_titre,z,colour.sec);  
