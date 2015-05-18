@@ -397,7 +397,9 @@ void rectangle(){
     }
 }
 
-
+float distance(POINT a, POINT b) {  
+    return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));  
+} 
 void ellipse() {
     POINT p,p1,P,po1,po2;
     POINT m;
