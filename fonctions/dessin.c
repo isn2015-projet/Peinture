@@ -14,12 +14,13 @@ void cercle(POINT P,int h,COULEUR c){
 }
 void pinceau(){
     POINT p,p1,po1,po2,P;
-    
+    int test=0;
     p=position_souris();
     P.x=LARGEUR_MENU; P.y=LARGEUR_MENU;
     int hauteur=2*option,i;
     while(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
         p1=p;
+        if(test==0){p1.x-=LARGEUR_MENU;p1.y-=LARGEUR_MENU;test++;}
         p=position_souris();
         for(i=hauteur;i>0;i--){
             if(bouton_appuye(CLIC_GCH)==true) {
@@ -29,6 +30,8 @@ void pinceau(){
                 cercle(p,i,colour.sec);
             }
         }
+        
+        p.x-=LARGEUR_MENU;p.y-=LARGEUR_MENU;
         if(bouton_appuye(CLIC_GCH)==true) {
             dessine_ligne_image(p,p1,colour.pri);
         }
