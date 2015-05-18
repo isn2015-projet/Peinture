@@ -44,6 +44,24 @@ char *affiche_option_specifique() {
                     break;
             }
             break;
+            
+        case 9: //ellipse
+            switch(option){
+                case 1:
+                    return "petit";
+                    break;
+                case 2:
+                    return "moyen";
+                    break;
+                case 3:
+                    return " gros";
+                    break;
+                default:
+                    return "moyen";
+                    break;
+            }
+            break;            
+            
         default:
             return "moyen";
             break;
