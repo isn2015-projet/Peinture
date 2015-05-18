@@ -413,3 +413,105 @@ void rectangle(){
     dessine_ligne_image(p3,p,colour.sec);
     }
 }
+
+
+void ellipse() {
+    POINT p,p1,P,po1,po2;
+    POINT m;
+    POINT z;
+    P.x=LARGEUR_MENU;
+    P.y=LARGEUR_MENU;
+    p=position_souris();
+    int i, j;
+    int lg_axe = option*50; 
+    if(bouton_appuye(CLIC_GCH)==true && p.x>LARGEUR_MENU && p.y > LARGEUR_MENU){
+        p1=p;
+        while(bouton_appuye(CLIC_GCH)==true){
+            p=position_souris();
+
+            for(i=LARGEUR_MENU;i<WIDTH;i++) {  
+                m.x = i;  
+                for(j=LARGEUR_MENU;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
+                    m.y = j;  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                        dessine_pixel(m,colour.pri);  
+                    }  
+                }  
+            }
+            
+            //fixed: les bordures de la barre d'outil disparaissaient
+            po1.x = 0;     po1.y = LARGEUR_MENU;
+            po2.x = WIDTH; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            //fin fixed
+            
+            affiche_tout();
+            dessine_image(sans_titre,P);
+        }
+            for(i=0;i<WIDTH;i++) {  
+                m.x = i;  
+                for(j=0;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
+                    m.y = j;  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                        z.x = m.x - 50;
+                        z.y = m.y - 50;
+                        dessine_pixel_image(sans_titre,z,colour.pri);  
+                    }  
+                }  
+            }
+
+    }
+    if(bouton_appuye(CLIC_DRT)==true && p.x>LARGEUR_MENU && p.y > LARGEUR_MENU){
+        p1=p;
+        while(bouton_appuye(CLIC_DRT)==true){
+            p=position_souris();
+
+            for(i=LARGEUR_MENU;i<WIDTH;i++) {  
+                m.x = i;  
+                for(j=LARGEUR_MENU;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
+                    m.y = j;  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                        dessine_pixel(m,colour.sec);  
+                    }  
+                }  
+            }
+            
+            //fixed: les bordures de la barre d'outil disparaissaient
+            po1.x = 0;     po1.y = LARGEUR_MENU;
+            po2.x = WIDTH; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+            po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+            po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+            dessine_ligne(po1, po2, COULEUR_BORDURE);
+            //fin fixed
+            
+            affiche_tout();
+            dessine_image(sans_titre,P);
+        }
+            for(i=0;i<WIDTH;i++) {  
+                m.x = i;  
+                for(j=0;j<HEIGHT-(LARGEUR_MENU/2);j++) {  
+                    m.y = j;  
+                    if((distance(m,p)+distance(m,p1))<=((2*lg_axe)+LARGEUR_MENU) && (distance(m,p)+distance(m,p1))>=((2*lg_axe)-LARGEUR_MENU)) {  
+                        z.x = m.x - 50;
+                        z.y = m.y - 50;
+                        dessine_pixel_image(sans_titre,z,colour.sec);  
+                    }  
+                }  
+            }
+
+    }
+}
