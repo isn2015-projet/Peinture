@@ -147,10 +147,10 @@ void gestion_fonction(){
         case 8:
             polygone();
             break;
-        /*case 9:
+        case 9:
             ellipse();
             break;
-        case 10:
+        /*case 10:
             rectangle_arrondi();
             break;*/
     }
