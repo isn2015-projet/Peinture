@@ -123,9 +123,9 @@ void gestion_fonction(){
         case 0:
             pinceau();
             break;
-        /*case 1:
+        case 1:
             brosse();
-            break;*/
+            break;
         case 2:
             aerographe();
             break;
