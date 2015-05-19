@@ -58,6 +58,63 @@ void pinceau(){
     }
 }
 
+void brosse(){
+    POINT p,p1,po1,po2,P,pl1,pl2;
+    int test=0,o;
+    p=position_souris();
+    P.x=LARGEUR_MENU; P.y=LARGEUR_MENU;
+    
+    while(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
+        p1=p;
+        if(test==0){p1.x-=LARGEUR_MENU;p1.y-=LARGEUR_MENU;test++;}
+        p=position_souris();
+        p.x-=LARGEUR_MENU;p.y-=LARGEUR_MENU;
+        pl1.x=p.x-3;pl1.y=p.y+3;
+        pl2.x=p.x+3;pl2.y=p.y-3;
+            
+        if(bouton_appuye(CLIC_GCH)==true) {
+            dessine_ligne_image(pl1,pl2,colour.pri);
+        }
+        else if(bouton_appuye(CLIC_DRT)==true) {
+            dessine_ligne_image(pl1,pl2,colour.sec);
+        }
+        
+        
+        
+        if(bouton_appuye(CLIC_GCH)==true) {
+            for(o=-3;o<11;o++){
+                pl1.x=p.x+o;pl1.y=p.y-o;
+                pl2.x=p1.x+o;pl2.y=p1.y-o;
+                dessine_ligne_image(pl1,pl2,colour.pri);
+            }
+        }
+        else if(bouton_appuye(CLIC_DRT)==true) {
+            for(o=-3;o<3;o++){
+                pl1.x=p.x-o;pl1.y=p.y+o;
+                pl2.x=p1.x-o;pl2.y=p1.y+o;
+                dessine_ligne_image(pl1,pl2,colour.sec);
+            }
+        }
+        
+        //fixed: les bordures de la barre d'outil disparaissaient
+        po1.x = 0;     po1.y = LARGEUR_MENU;
+        po2.x = WIDTH; po2.y = LARGEUR_MENU;
+        dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+        po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+        po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+        dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+        po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+        po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+        dessine_ligne(po1, po2, COULEUR_BORDURE);
+        //fin fixed
+            
+        affiche_tout();
+        dessine_image(sans_titre,P);
+    }
+}
+
 void gomme(){
     POINT p,p1,po1,po2,P;
     int test=0;
