@@ -79,19 +79,29 @@ void brosse(){
             dessine_ligne_image(pl1,pl2,colour.sec);
         }
         
-        
-        
         if(bouton_appuye(CLIC_GCH)==true) {
             for(o=-3;o<11;o++){
                 pl1.x=p.x+o;pl1.y=p.y-o;
                 pl2.x=p1.x+o;pl2.y=p1.y-o;
                 dessine_ligne_image(pl1,pl2,colour.pri);
             }
+            p.y++;p1.y++;
+            for(o=-2;o<11;o++){
+                pl1.x=p.x+o;pl1.y=p.y-o;
+                pl2.x=p1.x+o;pl2.y=p1.y-o;
+                dessine_ligne_image(pl1,pl2,colour.pri);
+            }
         }
         else if(bouton_appuye(CLIC_DRT)==true) {
-            for(o=-3;o<3;o++){
-                pl1.x=p.x-o;pl1.y=p.y+o;
-                pl2.x=p1.x-o;pl2.y=p1.y+o;
+            for(o=-3;o<11;o++){
+                pl1.x=p.x+o;pl1.y=p.y-o;
+                pl2.x=p1.x+o;pl2.y=p1.y-o;
+                dessine_ligne_image(pl1,pl2,colour.sec);
+            }
+            p.y++;p1.y++;
+            for(o=-2;o<11;o++){
+                pl1.x=p.x+o;pl1.y=p.y-o;
+                pl2.x=p1.x+o;pl2.y=p1.y-o;
                 dessine_ligne_image(pl1,pl2,colour.sec);
             }
         }
