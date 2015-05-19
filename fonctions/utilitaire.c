@@ -97,3 +97,53 @@ void sauvegarde_document() {
     strftime (s_now, sizeof s_now, "%d/%m/%Y %H:%M:%S", &tm_now);
     sprintf(derniere_sauvegarde, "%s", s_now);
 }
+
+void affichage_interface_fonction(){
+    POINT P,p1,p2,po1,po2;
+    P.x=50;P.y=50;
+    dessine_image(sans_titre,P);
+    pointeur_souris();
+    
+    p1.x = WIDTH-225; p1.y = 43;
+    p2.x=WIDTH-20;p2.y=25;
+    dessine_rectangle_plein(p1,p2,COULEUR_COLONNE);
+    
+    p1.x = WIDTH-170; p1.y = 43;
+    p2 = position_souris();
+    if(p2.x-LARGEUR_MENU>=0 && p2.y-LARGEUR_MENU>=0 && p2.y<HEIGHT-(LARGEUR_MENU/2))
+    {
+        char coordonnees[30];
+        sprintf(coordonnees, "Position: %dx%d", p2.x-LARGEUR_MENU, p2.y-LARGEUR_MENU);
+        dessine_texte(coordonnees,12,p1,COULEUR_TEXTE);
+    }
+    else {
+        if(p2.y>HEIGHT-(LARGEUR_MENU/2)) {
+            dessine_texte("Position: menu",12,p1,COULEUR_TEXTE);
+        }
+        else if(p2.x-LARGEUR_MENU<0 && p2.y-LARGEUR_MENU>=0) {
+            dessine_texte("Position: barre d'outil",12,p1,COULEUR_TEXTE);
+        }
+        else if(p2.y-LARGEUR_MENU<0) {
+            dessine_texte("Position: palette",12,p1,COULEUR_TEXTE);
+        }
+        else {
+            dessine_texte("Position: non defini",12,p1,COULEUR_TEXTE);
+        }
+    }
+    
+    //fixed: les bordures de la barre d'outil disparaissaient
+    po1.x = 0;     po1.y = LARGEUR_MENU;
+    po2.x = WIDTH; po2.y = LARGEUR_MENU;
+    dessine_ligne(po1, po2, COULEUR_BORDURE);
+        
+    po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+    po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+    dessine_ligne(po1, po2, COULEUR_BORDURE);
+        
+    po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+    po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+    dessine_ligne(po1, po2, COULEUR_BORDURE);
+    //fin fixed
+    
+    affiche_tout();
+}
