@@ -59,15 +59,39 @@ void pinceau(){
 }
 
 void gomme(){
-    POINT p;
+    POINT p,p1,po1,po2,P;
+    int test=0;
     p=position_souris();
+    P.x=LARGEUR_MENU; P.y=LARGEUR_MENU;
     int hauteur=2*option,i;
-    if(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU){
+    while(bouton_appuye(CLIC_GCH)==true){
+        p1=p;
+        if(test==0){p1.x-=LARGEUR_MENU;p1.y-=LARGEUR_MENU;test++;}
+        p=position_souris();
+        
         for(i=hauteur;i>0;i--){
-            if(bouton_appuye(CLIC_GCH)==true) {
-                cercle(p,i,blanc);
-            }
+            cercle(p,i,blanc);
         }
+        
+        p.x-=LARGEUR_MENU;p.y-=LARGEUR_MENU;
+        dessine_ligne_image(p,p1,blanc);
+        
+        //fixed: les bordures de la barre d'outil disparaissaient
+        po1.x = 0;     po1.y = LARGEUR_MENU;
+        po2.x = WIDTH; po2.y = LARGEUR_MENU;
+        dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+        po1.x = 0;     po1.y = HEIGHT-(LARGEUR_MENU/2);
+        po2.x = WIDTH; po2.y = HEIGHT-(LARGEUR_MENU/2);
+        dessine_ligne(po1, po2, COULEUR_BORDURE);
+            
+        po1.x = LARGEUR_MENU; po1.y = HEIGHT-(LARGEUR_MENU/2);
+        po2.x = LARGEUR_MENU; po2.y = LARGEUR_MENU;
+        dessine_ligne(po1, po2, COULEUR_BORDURE);
+        //fin fixed
+            
+        affiche_tout();
+        dessine_image(sans_titre,P);
     }
 }
 
