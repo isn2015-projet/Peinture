@@ -6,9 +6,7 @@
 #define COULEUR_TEXTE couleur_RGB(0,0,0)
 #define COULEUR_BORDURE couleur_RGB(150,150,150)
 #define WIDTH 1200
-#define width 1200
 #define HEIGHT 700
-#define height 700
 #define LARGEUR_MENU 50
 
 //Pour stocker les boutons et ses icons:
