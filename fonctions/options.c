@@ -8,6 +8,10 @@ void pointeur_souris() {
         p1 = position_souris();
         dessine_cercle(p1, 10*option, COULEUR_BORDURE);
     }
+    if(outil==4) {//gomme
+        p1 = position_souris();
+        dessine_cercle(p1, 2*option, COULEUR_BORDURE);
+    }
 }
 
 char *affiche_option_specifique() {
