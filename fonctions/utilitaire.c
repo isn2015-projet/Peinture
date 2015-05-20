@@ -38,7 +38,7 @@ void pipette(){
 void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     POINT p;
     float m1,m2,o1,o2,n1,n2;
-    int i,test=0;
+    int i,test=0,o,hauteur=option*2;
     
     o1=p1.x;
     o2=p1.y;
@@ -54,11 +54,16 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     m1=n1/n2;
     m2=n2/n1;
     
+    o1+=LARGEUR_MENU;
+    o2+=LARGEUR_MENU;
+    
     if((m2>=m1 && m1>=0) || (m1>=m2 && m1<=0)){
         for(i=0;i<abs(n2)+1;i++){
-            dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
+            for(o=hauteur;o>0;o--){
+                cercle(p,o,c);
+            }
             if(p2.x>p1.x){o1+=1;o2+=m1;}
             if(p2.x<p1.x){o1-=1;o2-=m1;}
         }
@@ -67,9 +72,11 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     
     if((m1>=m2 && m1>=0 && test==0) || (m2>=m1 && m1<=0 && test==0)){
         for(i=0;i<abs(n1)+1;i++){
-            dessine_pixel_image(sans_titre,p,c);
             p.x=o1;
             p.y=o2;
+            for(o=hauteur;o>0;o--){
+                cercle(p,o,c);
+            }
             if(p2.y>p1.y){o1+=m2;o2+=1;}
             if(p2.y<p1.y){o1-=m2;o2-=1;}
         }
