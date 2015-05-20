@@ -121,8 +121,7 @@ void sauvegarde_document() {
 
 void affichage_interface_fonction(){
     POINT P,p1,p2,po1,po2;
-    P.x=50;P.y=50;
-    dessine_image(sans_titre,P);
+    
     pointeur_souris();
     
     p1.x = WIDTH-225; p1.y = 43;
@@ -167,4 +166,6 @@ void affichage_interface_fonction(){
     //fin fixed
     
     affiche_tout();
+    P.x=50;P.y=50;
+    dessine_image(sans_titre,P);
 }
