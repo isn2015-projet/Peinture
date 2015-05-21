@@ -1,11 +1,22 @@
 void pinceau(){
     POINT p,p1;
-    int test=0;
+    int test=0,hauteur=option*2,i;
     p=position_souris();
     while(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
         p1=p;
         if(test==0){p1.x-=LARGEUR_MENU;p1.y-=LARGEUR_MENU;test++;}
         p=position_souris();
+        
+        if(bouton_appuye(CLIC_GCH)==true) {
+            for(i=hauteur;i>0;i--){
+                cercle(p,i,colour.pri);
+            }
+        }
+        else if(bouton_appuye(CLIC_DRT)==true) {
+            for(i=hauteur;i>0;i--){
+                cercle(p,i,colour.sec);
+            }
+        }
         
         p.x-=LARGEUR_MENU;p.y-=LARGEUR_MENU;
         if(bouton_appuye(CLIC_GCH)==true) {
