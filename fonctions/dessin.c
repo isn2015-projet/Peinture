@@ -134,7 +134,7 @@ void ligne(){
     p=position_souris();
     if(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
         pi=p;
-        while(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU && (bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true)){
+        while(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU && p.y<HEIGHT-LARGEUR_MENU/2 && (bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true)){
             p=position_souris();
             if(bouton_appuye(CLIC_GCH)==true){dessine_ligne(pi,p,colour.pri); couleur=1;}
             if(bouton_appuye(CLIC_DRT)==true){dessine_ligne(pi,p,colour.sec); couleur=2;}
@@ -173,7 +173,7 @@ void rectangle(){
     
     if(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
         p1=p;
-        while(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
+        while(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU && p.y<HEIGHT-LARGEUR_MENU/2 && (bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true)){
             p=position_souris();
             p2.x=p.x;   p2.y=p1.y;
             p3.x=p1.x;  p3.y=p.y;
