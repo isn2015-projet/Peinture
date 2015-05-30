@@ -9,7 +9,7 @@ void cercle(POINT P,int h,COULEUR c){
     centre.x = P.x - LARGEUR_MENU;
     centre.y = P.y - LARGEUR_MENU;
     dessine_pixel_image(sans_titre,centre,c);
-    for(i=0;i<=h*20;i++){
+    for(i=0;i<=h*8;i++){
         p.x=round(P.x+cos(i)*h)-LARGEUR_MENU;
         p.y=round(P.y+sin(i)*h)-LARGEUR_MENU;
             
