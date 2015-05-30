@@ -40,6 +40,9 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     float m1,m2,o1,o2,n1,n2;
     int i,test=0,o,hauteur;
     
+    if(outil==0 || outil==4){hauteur=option*2;}
+    else{hauteur=0;}
+    
     o1=p1.x;
     o2=p1.y;
     p=p1;
