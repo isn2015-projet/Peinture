@@ -86,7 +86,74 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     }
 }
 
-
+void gestion_interface_fonction(){
+    POINT clic_gch,p1,p2;
+    int i_bouton = 0, duet = 0;
+    clic_gch=position_clic( CLIC_GCH );
+    for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
+    {
+        if(i_bouton == 0)
+        {
+            p1.y = HEIGHT-10;
+            p2.y = HEIGHT-34;
+        }
+        if(duet == 1) {
+            p1.x = 25;
+            p2.x = 49;
+        }
+        else {
+            p1.x = 1;
+            p2.x = 25;
+            
+            p1.y -= 24;
+            p2.y -= 24;
+        }
+        if(Bouton(clic_gch,p1,p2)==true)
+        {
+            p1.x = WIDTH-170; p1.y = 23;
+            switch(i_bouton){
+                case 0:
+                    sprintf(mode, "Outil: Pinceau");
+                    break;
+                case 1:
+                    sprintf(mode, "Outil: Brosse");
+                    break;
+                case 2:
+                    sprintf(mode, "Outil: Aerographe");
+                    break;
+                case 3:
+                    sprintf(mode, "Outil: Remplissage");
+                    break;
+                case 4:
+                    sprintf(mode, "Outil: Gomme");
+                    break;
+                case 5:
+                    sprintf(mode, "Outil: Pipette");
+                    break;
+                case 6:
+                    sprintf(mode, "Outil: Ligne");
+                    break;
+                case 7:
+                    sprintf(mode, "Outil: Rectangle");
+                    break;
+                case 8:
+                    sprintf(mode, "Outil: Polygone");
+                    break;
+                case 9:
+                    sprintf(mode, "Outil: Ellipse");
+                    break;
+                case 10:
+                    sprintf(mode, "Outil: Rectangle Arrondi");
+                    break;
+                default :
+                    sprintf(mode, "Outil: undefined");
+            }
+            dessine_texte(mode,12,p1,COULEUR_TEXTE);
+            outil=i_bouton;
+        }
+        duet = 1 - duet;
+    }
+}
 
 void sauvegarde_document() {
     printf("Sauvegarde en cours!\n");
