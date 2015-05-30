@@ -150,19 +150,35 @@ void ligne(){
 
 
 void polygone(){
-    POINT p,p1;
+    POINT p,p1,p2;
+    int couleur=0,test=0;
     
-    while(bouton_appuye(CLIC_GCH)==true){
-        p1=p;
-        while(bouton_appuye(CLIC_GCH)==false){
+    while(outil==8){
+        p=position_souris();
+        if(test==0){p1=p;p2=p;}
+        couleur=0;
+        while(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU && p.y<HEIGHT-LARGEUR_MENU/2 && (bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true)){
             p=position_souris();
-            dessine_ligne(p1,p,colour.pri);
+            if(bouton_appuye(CLIC_GCH)==true){dessine_ligne(p1,p,colour.pri); couleur=1;}
+            if(bouton_appuye(CLIC_DRT)==true){dessine_ligne(p1,p,colour.sec); couleur=2;}
             
             affichage_interface_fonction();
+            test=1;
         }
-        p1.x-=50; p1.y-=50; p.x-=50; p.y-=50;
-        dessine_ligne_image(p1,p,colour.pri);    
+        if(couleur==1 || couleur==2){
+        p.x-=50; p.y-=50; p1.x-=50; p1.y-=50;
+        if(couleur==1){dessine_ligne_image(p1,p,colour.pri);}
+        if(couleur==2){dessine_ligne_image(p1,p,colour.sec);}
+        p1=p;
+        p1.x+=50; p1.y+=50;
+        }
+        affichage_interface_fonction();
+        gestion_interface_fonction();
     }
+    
+    if(test==1){
+    p2.x-=50; p2.y-=50; p1.x-=50; p1.y-=50;
+    dessine_ligne_image(p1,p2,colour.pri);}
 }
 
 void rectangle(){
