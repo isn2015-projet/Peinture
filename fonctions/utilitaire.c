@@ -9,7 +9,7 @@ void cercle(POINT P,int h,COULEUR c){
     centre.x = P.x - LARGEUR_MENU;
     centre.y = P.y - LARGEUR_MENU;
     dessine_pixel_image(sans_titre,centre,c);
-    for(i=0;i<h*20;i++){
+    for(i=0;i<=h*20;i++){
         p.x=round(P.x+cos(i)*h)-LARGEUR_MENU;
         p.y=round(P.y+sin(i)*h)-LARGEUR_MENU;
             
@@ -38,7 +38,7 @@ void pipette(){
 void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     POINT p;
     float m1,m2,o1,o2,n1,n2;
-    int i,test=0,o,hauteur=option*2;
+    int i,test=0,o,hauteur;
     
     o1=p1.x;
     o2=p1.y;
@@ -61,7 +61,7 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
         for(i=0;i<abs(n2)+1;i++){
             p.x=o1;
             p.y=o2;
-            for(o=hauteur;o>0;o--){
+            for(o=hauteur;o>=0;o--){
                 cercle(p,o,c);
             }
             if(p2.x>p1.x){o1+=1;o2+=m1;}
@@ -74,7 +74,7 @@ void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
         for(i=0;i<abs(n1)+1;i++){
             p.x=o1;
             p.y=o2;
-            for(o=hauteur;o>0;o--){
+            for(o=hauteur;o>=0;o--){
                 cercle(p,o,c);
             }
             if(p2.y>p1.y){o1+=m2;o2+=1;}
