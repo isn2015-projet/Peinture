@@ -8,7 +8,7 @@ void pinceau(){
         p=position_souris();
         
         if(bouton_appuye(CLIC_GCH)==true) {
-            for(i=hauteur;i>0;i--){
+            for(i=hauteur;i>=0;i--){
                 cercle(p,i,colour.pri);
             }
         }
