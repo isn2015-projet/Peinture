@@ -70,7 +70,7 @@ void affichage_interface(int width, int height) {
     dessine_texte_gras_DimitriNicolas("Menu: ",12,p1,COULEUR_TEXTE);
      p1.x=70;
      char texte_menu[300];
-     sprintf(texte_menu, "Nouvelle image      Ouvrir une image       Enregistrer l'image (date de la derniere sauvegarde: %s)", derniere_sauvegarde);
+     sprintf(texte_menu, "Nouvelle image | Enregistrer l'image (date de la derniere sauvegarde: %s)", derniere_sauvegarde);
      dessine_texte(texte_menu,12,p1,COULEUR_TEXTE);    
    
     //bordures
