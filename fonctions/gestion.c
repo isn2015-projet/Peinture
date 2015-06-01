@@ -22,7 +22,12 @@ void gestion_interface(){
             option++;
         }    
    }
-    
+   
+    t1.x = 12+LARGEUR_MENU; t1.y = 646+LARGEUR_MENU;
+    t2.x = 127+LARGEUR_MENU; t2.y = 624+LARGEUR_MENU;
+    if(Bouton(clic_gch,t1,t2)==true){
+        sans_titre = image_vide(1150,625);
+    }  
     
     //gestion sauvegarde
     POINT save1, save2;
