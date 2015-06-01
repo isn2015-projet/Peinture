@@ -2,8 +2,8 @@ void pointeur_souris() {
     POINT p1;
     if(outil==0) {//pnc
         p1 = position_souris();
-        if(option > 0 && p1.x > LARGEUR_MENU+option*3 && p1.y > LARGEUR_MENU+option*3 && p1.y < HEIGHT-LARGEUR_MENU/2-option*3) {
-            dessine_cercle(p1, 3*option, COULEUR_BORDURE);
+        if(option > 0 && p1.x > LARGEUR_MENU+option*2 && p1.y > LARGEUR_MENU+option*2 && p1.y < HEIGHT-LARGEUR_MENU/2-option*2) {
+            dessine_cercle(p1, 2*option, COULEUR_BORDURE);
         }
     }
     if(outil==2) {//aergph
