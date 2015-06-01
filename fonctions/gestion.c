@@ -11,7 +11,7 @@ void gestion_interface(){
     t1.x = 10; t1.y = 457;
     t2.x = 15; t2.y = 447;
     if(Bouton(clic_gch,t1,t2)==true || touche_nb_appuis(80)==1){
-        if(option!=1) {
+        if(option!=0) {
             option--;
         }
     }
