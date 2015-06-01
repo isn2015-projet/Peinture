@@ -304,7 +304,7 @@ void remplissage() {
         p = position_souris();
         p.x -= LARGEUR_MENU;
         p.y -= LARGEUR_MENU;
-        if(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU) {
+        if(p.x> 0  && p.y> 0 && p.y<HEIGHT) {
             
         int k = 0;
         int courant = 0;
@@ -386,7 +386,7 @@ void remplissage() {
         p = position_souris();
         p.x -= LARGEUR_MENU;
         p.y -= LARGEUR_MENU;
-        if(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU) {
+        if(p.x>0 && p.y>0 && p.y<HEIGHT) {
             
         int k = 0;
         int courant = 0;
