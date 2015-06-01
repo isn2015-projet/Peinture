@@ -104,28 +104,26 @@ void aerographe(){
     POINT p,P;
     float cosinus=0;
     int j;
-    p=position_souris();
-    
-    if/*while*/(p.x>LARGEUR_MENU && p.y>LARGEUR_MENU){
+
+    while(bouton_appuye(CLIC_GCH)==true || bouton_appuye(CLIC_DRT)==true){
+        p=position_souris();
         cosinus=(reel_aleatoire()+entier_aleatoire(4))*2;
-        affiche_tout();
         if(bouton_appuye(CLIC_GCH)==true) {
-            for(j=0;j<5;j++) {
+            for(j=0;j<10;j++){
                 P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10*option)-LARGEUR_MENU);
                 P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10*option)-LARGEUR_MENU);
                 dessine_pixel_image(sans_titre,P,colour.pri);
             }
         }
-        else if(bouton_appuye(CLIC_GCH)==true) {
-            for(j=0;j<5;j++) {
-                P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10*option));
-                P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10*option));
+        else if(bouton_appuye(CLIC_DRT)==true) {
+            for(j=0;j<10;j++){
+                P.x=floor(p.x+cos(cosinus)*entier_aleatoire(10*option)-LARGEUR_MENU);
+                P.y=floor(p.y+sin(cosinus)*entier_aleatoire(10*option)-LARGEUR_MENU);
                 dessine_pixel_image(sans_titre,P,colour.sec);
             }
         }
-        affiche_tout();
+        affichage_interface_fonction();
     }
-
 }
 
 void ligne(){
