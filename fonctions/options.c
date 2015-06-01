@@ -20,6 +20,9 @@ char *affiche_option_specifique() {
     switch(outil){
         case 0: //pinceau
             switch(option){
+                case 0:
+                    return "wowww";
+                    break;
                 case 1:
                     return "   fin";
                     break;
