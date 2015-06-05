@@ -1,3 +1,4 @@
+/*Cette fonction sert à extraire les composantes d'une couleur envoyée en paramètre*/
 int dec2hex_rgb(int parametre, int intColor) {
     if(parametre==0) { // on extrait le rouge
         return (intColor & 0xff0000) >> 16;
