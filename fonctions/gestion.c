@@ -29,6 +29,13 @@ void gestion_interface(){
         sans_titre = image_vide(1150,625);
     }    
     
+    t1.x = 220; t1.y = 35;
+    t2.x = 335; t2.y = 15;
+    if(Bouton(clic_gch,t1,t2)==true){
+        modifier_palette();
+    } 
+
+    
     //gestion sauvegarde
     POINT save1, save2;
     save1.x = 127+LARGEUR_MENU;
@@ -39,7 +46,6 @@ void gestion_interface(){
         sauvegarde_document();
     }
     
-
     for(i=0;i<NB_COULEUR;i++){
         if(i<NB_COULEUR/2){
             p1.x=60+i*15;p2.x=75+i*15;
@@ -48,7 +54,7 @@ void gestion_interface(){
             if(Bouton(clic_drt,p1,p2)==true){colour.sec=palette[i];}
         }
         if(i>=NB_COULEUR/2){
-            p1.x=-75+i*15;p2.x=-60+i*15;
+            p1.x=-90+i*15;p2.x=-60+i*15;
             p1.y=25;p2.y=10;
             if(Bouton(clic_gch,p1,p2)==true){colour.pri=palette[i];}
             if(Bouton(clic_drt,p1,p2)==true){colour.sec=palette[i];}
@@ -110,9 +116,6 @@ void gestion_interface(){
                 case 9:
                     sprintf(mode, "Outil: Ellipse");
                     break;
-                case 10:
-                    sprintf(mode, "Outil: Rectangle Arrondi");
-                    break;
                 default :
                     sprintf(mode, "Outil: undefined");
             }
@@ -155,9 +158,6 @@ void gestion_fonction(){
         case 9:
             ellipse();
             break;
-        /*case 10:
-            rectangle_arrondi();
-            break;*/
     }
 
 }
