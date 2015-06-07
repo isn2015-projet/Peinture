@@ -35,6 +35,59 @@ void pipette(){
     }
 }
 
+void modifier_palette(){
+    POINT p_g,p_d,p1,p2;
+    int i,r=255,g=0,b=0;
+    p_g.x=0;p_g.y=0;p_d.x=0;p_d.y=0;
+    p1.x=334;p1.y=41;
+    p2.x=640;p2.y=9;
+    
+    dessine_rectangle(p1,p2,COULEUR_BORDURE);
+    p1.x++;p1.y--;p2.y++;
+    
+    for(i=0;i<306;i++){
+    p2.x=p1.x;
+    dessine_ligne(p1,p2,couleur_RGB(r,g,b));
+    
+    if(r==255 && g< 255 && b==0  ){g+=5;}
+    if(r> 0   && g==255 && b==0  ){r-=5;}
+    if(r==0   && g==255 && b< 255){b+=5;}
+    if(r==0   && g> 0   && b==255){g-=5;}
+    if(r< 255 && g==0   && b==255){r+=5;}
+    if(r==255 && g==0   && b> 0  ){b-=5;}
+    
+    p1.x=335+i;
+    }
+    affiche_tout();
+    
+    p1.x=334;p1.y=41;
+    p2.x=640;p2.y=9;
+    
+    while(Bouton(p_g,p1,p2)==false && Bouton(p_d,p1,p2)==false){
+    p_g=position_clic( CLIC_GCH );
+    p_d=position_clic( CLIC_DRT );
+    affiche_tout();
+    }
+    
+    if(Bouton(p_g,p1,p2)==true){p_g.x-=334;
+    if(p_g.x>=0   && p_g.x<51 ){colour.pri=couleur_RGB(255          ,p_g.x*5      ,0);}
+    if(p_g.x>=51  && p_g.x<102){colour.pri=couleur_RGB(255-(p_g.x-51)*5 ,255          ,0);}
+    if(p_g.x>=102 && p_g.x<153){colour.pri=couleur_RGB(0            ,255          ,(p_g.x-102)*5);}
+    if(p_g.x>=153 && p_g.x<204){colour.pri=couleur_RGB(0            ,255-(p_g.x-153)*5,255);}
+    if(p_g.x>=204 && p_g.x<255){colour.pri=couleur_RGB((p_g.x-204)*5,0            ,255);}
+    if(p_g.x>=255 && p_g.x<306){colour.pri=couleur_RGB(255          ,0            ,255-(p_g.x-255)*5);}
+    }
+    if(Bouton(p_d,p1,p2)==true){p_d.x-=334;
+    if(p_d.x>=0   && p_d.x<51 ){colour.sec=couleur_RGB(255,p_d.x*5,0);}
+    if(p_d.x>=51  && p_d.x<102){colour.sec=couleur_RGB((p_d.x-51)*5,255,0);}
+    if(p_d.x>=102 && p_d.x<153){colour.sec=couleur_RGB(0,255,(p_d.x-102)*5);}
+    if(p_d.x>=153 && p_d.x<204){colour.sec=couleur_RGB(0,(p_d.x-153)*5,255);}
+    if(p_d.x>=204 && p_d.x<255){colour.sec=couleur_RGB((p_d.x-204)*5,0,255);}
+    if(p_d.x>=255 && p_d.x<306){colour.sec=couleur_RGB(255,0,(p_d.x-255)*5);}
+    }
+}
+
+
 void dessine_ligne_image(POINT p1,POINT p2,COULEUR c){
     POINT p;
     float m1,m2,o1,o2,n1,n2;
@@ -90,6 +143,47 @@ void gestion_interface_fonction(){
     POINT clic_gch,p1,p2;
     int i_bouton = 0, duet = 0;
     clic_gch=position_clic( CLIC_GCH );
+    p1.x = WIDTH-225; p1.y = 25;
+    p2.x=WIDTH-20;p2.y=5;
+    dessine_rectangle_plein(p1,p2,COULEUR_COLONNE);
+    
+    p1.x = WIDTH-170; p1.y = 23;
+    switch(outil){
+        case 0:
+            sprintf(mode, "Outil: Pinceau");
+            break;
+        case 1:
+            sprintf(mode, "Outil: Brosse");
+            break;
+        case 2:
+            sprintf(mode, "Outil: Aerographe");
+            break;
+        case 3:
+            sprintf(mode, "Outil: Remplissage");
+            break;
+        case 4:
+            sprintf(mode, "Outil: Gomme");
+            break;
+        case 5:
+            sprintf(mode, "Outil: Pipette");
+            break;
+        case 6:
+            sprintf(mode, "Outil: Ligne");
+            break;
+        case 7:
+            sprintf(mode, "Outil: Rectangle");
+            break;
+        case 8:
+            sprintf(mode, "Outil: Polygone");
+            break;
+        case 9:
+            sprintf(mode, "Outil: Ellipse");
+            break;
+        default :
+            sprintf(mode, "Outil: undefined");
+    }
+    dessine_texte(mode,12,p1,COULEUR_TEXTE);
+
     for(i_bouton = 0; i_bouton < NB_BOUTON; i_bouton++)
     {
         if(i_bouton == 0)
