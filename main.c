@@ -13,7 +13,6 @@ int main( int argc, char** argv )
         affichage_interface(WIDTH, HEIGHT);
         gestion_interface();
         gestion_fonction();
-        attendre(20);
     }
     
     
